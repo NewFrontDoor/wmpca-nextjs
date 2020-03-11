@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
+import urlFor from '../lib/sanityImg';
 
 const ImageWrapper = styled.div`
   max-height: 400px;
@@ -7,13 +9,24 @@ const ImageWrapper = styled.div`
   display: grid;
   justify-items: center;
   align-items: center;
-  img { }
+  img {
+  }
 `;
 
-export default function MainImage({mainImage}) {
+const MainImage = ({mainImage}) => {
   return (
     <ImageWrapper>
-        <img src={mainImage.asset.url} alt="" style={{maxWidth: "100%", height: "auto", maxHeight: "400px"}}/>
+      <img
+        src={urlFor(mainImage)}
+        alt=""
+        style={{maxWidth: '100%', height: 'auto', maxHeight: '400px'}}
+      />
     </ImageWrapper>
   );
-}
+};
+
+MainImage.propTypes = {
+  mainImage: PropTypes.object.isRequired
+};
+
+export default MainImage;

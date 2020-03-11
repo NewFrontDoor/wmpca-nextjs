@@ -17,12 +17,12 @@ const Grid = styled('section')`
     grid-column: 1 / 2;
     padding-bottom: 5px;
   }
-  checkbox{
-      display: block;
+  checkbox {
+    display: block;
   }
-  input[type="text"],
-  input[type="email"],
-  input[type="telephone"],
+  input[type='text'],
+  input[type='email'],
+  input[type='telephone'],
   textarea,
   select,
   button {
@@ -32,7 +32,8 @@ const Grid = styled('section')`
   .fullwidth {
     grid-column: 1 / 3;
   }
-  .inline, input[type="checkbox"] {
+  .inline,
+  input[type='checkbox'] {
     display: inline;
   }
 `;
@@ -51,7 +52,7 @@ const RadioGroup = styled('fieldset')`
   }
 `;
 
-function getFormField(field) {
+var getFormField = (field) => {
   console.log(field);
   switch (field.input) {
     case 'textarea':
@@ -108,14 +109,19 @@ function getFormField(field) {
 
 export default function Form({title, id, description, fields}) {
   return (
-    <form id={id} onSubmit={(e) => {e.preventDefault()}}>
+    <form
+      id={id}
+      onSubmit={e => {
+        e.preventDefault();
+      }}
+    >
       <fieldset>
         <h2>{title}</h2>
         <Grid>
           {fields.map(field => {
             return getFormField(field);
           })}
-        <input className="fullwidth" type="submit" value="Submit" />
+          <input className="fullwidth" type="submit" value="Submit" />
         </Grid>
       </fieldset>
     </form>

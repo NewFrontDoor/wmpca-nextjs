@@ -1036,7 +1036,7 @@
   resolved "https://registry.yarnpkg.com/@newfrontdoor/api-config/-/api-config-0.1.0.tgz#065c3af0cbbf79e4ac41a9b65cf01fab9c8aa255"
   integrity sha512-NHRFBNSIY2ziM0gUfVsl77887d3W5l0xOF57gb+cohaasIRollKIIZ1rW9JDtHPW7/jep+JltWxlGtUePyZjLA==
 
-"@newfrontdoor/audio-player@^0.1.2":
+"@newfrontdoor/audio-player@^0.1.2", "@newfrontdoor/audio-player@^0.1.8":
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/@newfrontdoor/audio-player/-/audio-player-0.1.8.tgz#0152a52f0078718aa46677c0990012155d0ce66a"
   integrity sha512-0HSEdAFaAwhsgAYgT4EG0GaGwPjghLe9rXGnMrpnW9POgBvpInGqmfmxRo4NFLh7Gg5Hz2fzf35NMFDTOYrPTw==
