@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {NavButton as Button} from './nav-button';
+import {NavButton as Button} from './sidebar/nav-button';
 
 const Block = styled.div`
   display: flex;

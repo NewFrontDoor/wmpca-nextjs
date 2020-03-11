@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import {NavButton as Button} from '../components/nav-button';
+import {NavButton as Button} from './sidebar/nav-button';
 import SectionTitle from './section-title';
 
 const Grid = styled.div`

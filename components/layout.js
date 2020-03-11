@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 import {contact, menu /*slides, heading, about, newsletter, connect, blog, welcome, portfolio*/} from '../data/app-content';
-import Sidebar from './sidebar';
-import FooterIcons from '../components/footer-icons';
-import Footer from './footer';
+import Sidebar from './sidebar/sidebar';
+import FooterIcons from './footer/footer-icons';
+import Footer from './footer/footer';
 import ActionBlock from '../components/action-block';
 
 const Container = styled.div`
