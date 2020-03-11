@@ -31,6 +31,66 @@
     "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "react-hot-loader": "^4.12.19"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-emotion": "^10.0.27",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "prettier": "^1.19.1",
+    "prop-types": "^15.7.2",
+    "react-hot-loader": "^4.12.19",
+    "xo": "^0.27.2"
+  },
+  "xo": {
+    "extends": [
+      "xo-react"
+    ],
+    "parser": "babel-eslint",
+    "prettier": true,
+    "space": true,
+    "plugins": [
+      "emotion"
+    ],
+    "rules": {
+      "emotion/jsx-import": "error",
+      "emotion/no-vanilla": "error",
+      "emotion/import-from-emotion": "error",
+      "emotion/styled-import": "error"
+    },
+    "overrides": [
+      {
+        "files": "**/__tests__/**/*.js",
+        "rules": {
+          "import/no-unassigned-import": [
+            "error",
+            {
+              "allow": [
+                "jest-dom/extend-expect"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "eslint": {
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
