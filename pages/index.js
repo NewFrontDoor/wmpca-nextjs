@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import Layout from '../components/layout';
-import Header from '../components/header';
+import Header from '../components/header/header';
 import Carousel from '@newfrontdoor/carousel';
 import Contact from '../templates/contact';
 import Panels from '../components/panels';
