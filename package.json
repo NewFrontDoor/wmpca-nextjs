@@ -12,23 +12,25 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@emotion/core": "^10.0.27",
-    "@emotion/is-prop-valid": "^0.8.6",
+    "@emotion/core": "^10.0.28",
+    "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/styled": "^10.0.27",
     "@newfrontdoor/calendar": "^2.2.0",
     "@newfrontdoor/carousel": "^1.0.0",
-    "@newfrontdoor/sermon": "^0.2.13",
+    "@newfrontdoor/sermon": "^0.5.5",
     "@sanity/block-content-to-react": "^2.0.7",
-    "@sanity/client": "^1.148.3",
-    "@u-wave/react-vimeo": "^0.8.1",
+    "@sanity/client": "^1.149.2",
+    "@sanity/image-url": "^0.140.17",
+    "@u-wave/react-vimeo": "^0.8.2",
     "@u-wave/react-youtube": "^0.7.0",
     "get-video-id": "^3.1.4",
-    "next": "^9.2.1",
-    "react": "^16.12.0",
+    "next": "^9.3.0",
+    "react": "^16.13.0",
     "react-audio-player": "^0.11.1",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.13.0",
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
-    "react-hot-loader": "^4.5.3"
+    "react-hot-loader": "^4.12.19"
   }
 }
