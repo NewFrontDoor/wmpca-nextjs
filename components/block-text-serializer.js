@@ -1,11 +1,43 @@
 /** @jsx jsx */
 import React from 'react';
+import PropTypes from 'prop-types';
 import BlockContent from '@sanity/block-content-to-react';
 import {Styled, jsx} from 'theme-ui';
 import Link from './link';
 import urlFor from '../lib/sanityImg';
 import Form from './form';
-import PropTypes from 'prop-types';
+import getVideoId from 'get-video-id';
+import Vimeo from '@u-wave/react-vimeo';
+// Import Youtube from 'react-youtube';
+import Youtube from '@u-wave/react-youtube';
+import {StyledPlayer} from '@newfrontdoor/audio-player';
+
+const AudioSerializer = ({node}) => {
+  return <StyledPlayer audio={node.url} isInvert={false} width="300px"/>;
+};
+
+const VideoSerializer = ({node}) => {
+  const {url} = node;
+  if (url) {
+    const video = getVideoId(url || null);
+
+    if (video.service === 'youtube') {
+      return (
+        <Youtube
+          modestBranding
+          annotations={false}
+          video={video.id}
+          height={360}
+          width={640}
+        />
+      );
+    }
+
+    if (video.service === 'vimeo') {
+      return <Vimeo showTitle={false} showByline={false} video={video.id} />;
+    }
+  }
+};
 
 const CustomStyleSerializer = ({children}) => {
   return <Styled.p>{children}</Styled.p>;
@@ -47,9 +79,7 @@ const InternalLinkSerializer = ({mark, children}) => (
 );
 
 const ExternalLinkSerializer = ({mark, children}) => (
-  <Link link={mark.href}>
-    {children}
-  </Link>
+  <Link link={mark.href}>{children}</Link>
 );
 
 InternalLinkSerializer.propTypes = {
@@ -107,7 +137,9 @@ const BlockText = ({blocks}) => {
           block: BlockRenderer,
           p: CustomStyleSerializer,
           form: FormSerializer,
-          image: ImageSerializer
+          image: ImageSerializer,
+          audioEmbed: AudioSerializer,
+          videoEmbed: VideoSerializer
         },
         marks: {
           anchor: AnchorSerializer,

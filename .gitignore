@@ -9,7 +9,8 @@
 /coverage
 
 # production
-.next
+/.next/
+/out/
 
 # misc
 .DS_Store

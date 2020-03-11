@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
-import Link from 'next/link';
+import Link from '../link';
 
 const SelectMenu = styled.select`
   display: block;
@@ -96,25 +97,24 @@ const Core = styled.ul`
   }
 `;
 
-export default function Menu({items}) {
+const Menu = ({menuItems}) => {
   return (
     <>
       <Core>
-        {items.map(item => {
+        {menuItems.map(item => {
+          const {childpages, text} = item;
           return (
-            <li key={item.link + 'root'}>
-              <Link href={item.link}>
-                <a>
-                {item.text}
+            <li key={childpages[0].pathname + 'root'}>
+              <Link link={childpages[0].slug.current}>
+                {text}
                 {item.children && ' »'}
-                </a>
               </Link>
-              {item.children && (
+              {childpages > 0 && (
                 <ul>
-                  {item.children.map(child => {
+                  {childpages.map(child => {
                     return (
-                      <li key={item.link + '-' + child.link}>
-                        <Link to={child.link}>{child.text}</Link>
+                      <li key={child.slug.current + 'child'}>
+                        <Link link={child.slug.current}>{child.text}</Link>
                       </li>
                     );
                   })}
@@ -126,19 +126,29 @@ export default function Menu({items}) {
       </Core>
       <SelectMenu name="menu" id="menu-select">
         <option value="">--Please choose an option--</option>
-        {items.map(item => {
+        {menuItems.map(item => {
+          const {childpages, text} = item;
           return (
-            <React.Fragment key={item.text}>
-              <option value={item.link}>{item.children ? item.text + ' »' : item.text}</option>
-              {item.children ? item.children.map(child => {
-                return (
-                  <option value={child.link}>– {child.text}</option>
-                )
-              }) : ''}
+            <React.Fragment key={text}>
+              <option value={childpages[0].slug.current}>
+                {childpages > 0 ? text + ' »' : text}
+              </option>
+              {childpages > 0 &&
+                childpages.map(child => {
+                  return (
+                    <option value={child.slug.current}>– {child.title}</option>
+                  );
+                })}
             </React.Fragment>
-          )
+          );
         })}
       </SelectMenu>
     </>
   );
-}
+};
+
+Menu.propTypes = {
+  menuItems: PropTypes.arrayOf(PropTypes.object)
+};
+
+export default Menu;

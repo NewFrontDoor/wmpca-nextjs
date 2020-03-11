@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from '@emotion/styled';
 import Logo from './logo';
@@ -17,11 +18,18 @@ const VertNav = styled.div`
   }
 `;
 
-export default function SideBar({menu}) {
+const SideBar = ({img, menuItems}) => {
   return (
     <VertNav>
-      <Logo img />
-      <Menu items={menu} />
+      <Logo img={img} />
+      <Menu menuItems={menuItems} />
     </VertNav>
   );
-}
+};
+
+SideBar.propTypes = {
+  img: PropTypes.string,
+  menuItems: PropTypes.arrayOf(PropTypes.object)
+};
+
+export default SideBar;
