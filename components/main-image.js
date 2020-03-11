@@ -1,27 +1,18 @@
-import PropTypes from 'prop-types';
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+import {jsx} from 'theme-ui';
 import urlFor from '../lib/sanityImg';
-
-const ImageWrapper = styled.div`
-  max-height: 400px;
-  margin-bottom: 40px;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  img {
-  }
-`;
 
 const MainImage = ({mainImage}) => {
   return (
-    <ImageWrapper>
+    <div sx={{height: '400px'}}>
       <img
         src={urlFor(mainImage)}
         alt=""
-        style={{maxWidth: '100%', height: 'auto', maxHeight: '400px'}}
+        sx={{width: '100%', height: '100%', objectFit: 'cover'}}
       />
-    </ImageWrapper>
+    </div>
   );
 };
 
