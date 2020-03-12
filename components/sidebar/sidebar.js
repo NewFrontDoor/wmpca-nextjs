@@ -15,6 +15,7 @@ const VertNav = styled.div`
   @media (min-width: 640px) and (min-height: 500px) {
     position: sticky;
     top: 28px;
+    margin-top: 28px;
   }
 `;
 

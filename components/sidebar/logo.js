@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Link from 'next/link';
-//import {ReactComponent as LogoImg} from '../assets/logo.svg';
-//import wmpcaLogo from '../assets/WMPCA_vertical_Lrg.jpg'
+import {ReactComponent as LogoImg} from '../../public/logo.svg';
+import {Styled} from 'theme-ui';
 
 const MainTitle = styled.div`
   width: 150px;
   height: 150px;
   margin: auto;
-
 
   h1 {
     color: #ececec;
@@ -30,8 +29,9 @@ const MainTitle = styled.div`
 export default function Logo({img, sitename}) {
   return (
     <Link href="/">
-      {/*<MainTitle>{img ? <LogoImg /> : <h1>{sitename}</h1>}</MainTitle>*/}
-      <MainTitle>{img ? <img src='/WMPCA_vertical_Lrg.jpg' alt=""/> : <h1>{sitename}</h1>}</MainTitle>
+      <MainTitle>
+        <LogoImg />
+      </MainTitle>
     </Link>
   );
 }
