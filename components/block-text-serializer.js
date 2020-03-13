@@ -5,7 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import {Styled, jsx} from 'theme-ui';
 import Link from './link';
 import urlFor from '../lib/sanityImg';
-import Form from './form';
+import {Form, validation} from '@newfrontdoor/form'
 import getVideoId from 'get-video-id';
 import Vimeo from '@u-wave/react-vimeo';
 // Import Youtube from 'react-youtube';
@@ -65,7 +65,14 @@ ImageSerializer.propTypes = {
 };
 
 const FormSerializer = ({node}) => {
-  return <Form {...node} />;
+  return (
+    <Form
+      {...node}
+      validationFn={values => validation(values, node)}
+      blockText={val => <BlockText blocks={val} />}
+      submitForm={() => console.log('submitted!')}
+    />
+  );
 };
 
 FormSerializer.propTypes = {
