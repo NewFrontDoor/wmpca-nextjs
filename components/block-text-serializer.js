@@ -5,7 +5,7 @@ import BlockContent from '@sanity/block-content-to-react';
 import {Styled, jsx} from 'theme-ui';
 import Link from './link';
 import urlFor from '../lib/sanityImg';
-import Form from './form';
+import {Form, validation} from '@newfrontdoor/form';
 import getVideoId from 'get-video-id';
 import Vimeo from '@u-wave/react-vimeo';
 // Import Youtube from 'react-youtube';
@@ -13,7 +13,11 @@ import Youtube from '@u-wave/react-youtube';
 import {StyledPlayer} from '@newfrontdoor/audio-player';
 
 const AudioSerializer = ({node}) => {
-  return <StyledPlayer audio={node.url} isInvert={false} width="300px"/>;
+  return <StyledPlayer audio={node.url} isInvert={false} width="300px" />;
+};
+
+AudioSerializer.propTypes = {
+  node: PropTypes.object.isRequired
 };
 
 const VideoSerializer = ({node}) => {
@@ -37,6 +41,10 @@ const VideoSerializer = ({node}) => {
       return <Vimeo showTitle={false} showByline={false} video={video.id} />;
     }
   }
+};
+
+VideoSerializer.propTypes = {
+  node: PropTypes.object.isRequired
 };
 
 const CustomStyleSerializer = ({children}) => {
@@ -65,7 +73,14 @@ ImageSerializer.propTypes = {
 };
 
 const FormSerializer = ({node}) => {
-  return <Form {...node} />;
+  return (
+    <Form
+      {...node}
+      validationFn={values => validation(values, node)}
+      blockText={val => <BlockText blocks={val} />}
+      submitForm={values => console.log(values)}
+    />
+  );
 };
 
 FormSerializer.propTypes = {
