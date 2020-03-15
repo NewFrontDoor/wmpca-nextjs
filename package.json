@@ -18,7 +18,7 @@
     "@newfrontdoor/audio-player": "^0.1.8",
     "@newfrontdoor/calendar": "^2.2.0",
     "@newfrontdoor/carousel": "^1.0.0",
-    "@newfrontdoor/form": "0.3.2",
+    "@newfrontdoor/form": "^0.5.6",
     "@newfrontdoor/sermon": "^0.5.5",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/client": "^1.149.2",
