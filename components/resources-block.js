@@ -1,22 +1,16 @@
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
-import {Link} from 'react-router-dom';
+import {jsx} from 'theme-ui';
+import Link from './link';
 
-const Div = styled.div`
-  min-height: 300px;
-`;
-
-const ResourceLinks = styled.ul`
- list-style: none;
-`;
-
-
-export default () =>  {
+export default () => {
   return (
-    <Div>
-      <ResourceLinks>
-        <li><Link href="/connect">Connect & Network</Link></li>
-      </ResourceLinks>
-    </Div>
+    <div sx={{minHeight: '300px'}}>
+      <ul sx={{listStyle: 'none'}}>
+        <li>
+          <Link link="/connect">Connect & Network</Link>
+        </li>
+      </ul>
+    </div>
   );
-}
+};

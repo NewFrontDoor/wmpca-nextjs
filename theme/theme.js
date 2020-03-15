@@ -15,7 +15,12 @@ export default {
       whiteSpace: 'pre-line',
       textTransform: 'uppercase'
     },
-    menuUl
+    menuUl,
+    breadcrumb: {
+      fontSize: '24px',
+      color: 'text',
+      textAlign: 'center'
+    }
   },
   fonts: {
     body: '"Open Sans", system-ui, sans-serif',
@@ -152,6 +157,19 @@ export default {
     }
   },
   buttons: {
+    primary: {
+      padding: '4px 12px',
+      fontSize: '14px',
+      lineHeight: '20px',
+      cursor: 'pointer',
+      border: '1px solid #cccccc',
+      borderColor: 'rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)',
+      borderBottomColor: '#b3b3b3',
+      borderRadius: '4px',
+      backgroundColor: '#565a5c',
+      color: '#ffffff',
+      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
+    },
     home: {
       fontFamily: 'body',
       borderRadius: '3px',

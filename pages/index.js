@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from '@newfrontdoor/carousel';
-import styled from '@emotion/styled';
 import Contact from '../templates/contact';
 import Panels from '../components/panels';
 import Portfolio from '../components/portfolio';
@@ -23,11 +22,11 @@ const Home = ({mainData, menuData}) => {
         {images && (
           <Carousel style={{height: '400px'}}>
             {images.map(slide => (
-              <img sx={{width: '100%'}} key={slide._key} src={urlFor(slide)} />
+              <img key={slide._key} sx={{width: '100%'}} src={urlFor(slide)} />
             ))}
           </Carousel>
         )}
-        {/*{panels && <Panels />}
+        {/* {panels && <Panels />}
 
         {portfolio && <Portfolio portfolio={portfolio} />}
         {contact && <Contact map={contact.map} contact={contact.content} />} */}

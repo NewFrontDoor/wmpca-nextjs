@@ -2,14 +2,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../link';
-import {jsx} from 'theme-ui';
+import {jsx, Text} from 'theme-ui';
 
 const Breadcrumbs = ({breadcrumbs}) => {
   return (
-    <div
-      sx={{m: '-2px 0px', fontSize: '24px', color: 'text', textAlign: 'center'}}
-    >
-      <h3>
+    <div sx={{m: '-2px 0px'}}>
+      <Text as="h3" variant="breadcrumb">
         {breadcrumbs.map(crumb => {
           return (
             <Link
@@ -21,7 +19,7 @@ const Breadcrumbs = ({breadcrumbs}) => {
             </Link>
           );
         })}
-      </h3>
+      </Text>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const Button = styled.button`
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `;
 
-function NavButton({children, to}) {
+const NavButton = ({children, to}) => {
   const history = useHistory();
 
   function handleClick() {

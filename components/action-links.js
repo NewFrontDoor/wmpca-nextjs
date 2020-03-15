@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import React from 'react';
 
-export default function ActionLinks({links}) {
+const ActionLinks = ({links}) => {
   return (
-    <ul className="action-links">
+    <ul>
       {links.map(link => {
         return (
           <li key={link.name}>
@@ -12,4 +13,10 @@ export default function ActionLinks({links}) {
       })}
     </ul>
   );
-}
+};
+
+ActionLinks.propTypes = {
+  links: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
+export default ActionLinks;

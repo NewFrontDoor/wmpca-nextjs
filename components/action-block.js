@@ -1,48 +1,39 @@
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
+import PropTypes from "prop-types";
+import {Flex, Styled, jsx} from 'theme-ui';
 import {NavButton as Button} from './sidebar/nav-button';
+import Link from './link';
 
-const Block = styled.div`
-  display: flex;
-  flex-direction: column;
-  h4 {
-    font-size: 18px;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 300;
-    text-transform: uppercase;
-  }
-  p {
-    line-height: 1.7;
-    font-size: 13px;
-  }
-  button {
-    align-self: flex-end;
-  }
-`;
-
-const ExternalLink = styled.a`
-color: #797979;
-:hover{
-  color: #fff;
-}
-`;
-
-export default function ActionBlock({heading, content, action, url}) {
+const ActionBlock = ({heading, content, action, url}) => {
   return (
-    <Block>
-      <h4>{heading}</h4>
+    <Flex sx={{flexDirection: 'column'}}>
+      <Styled.h4>{heading}</Styled.h4>
       <p>
         {Array.isArray(content)
           ? content.map(line => (
-              <span>
+              <span key={line}>
                 {line}
                 <br />
               </span>
             ))
           : content}
       </p>
-      {action && <Button to={action.to}>{action.text}</Button>}
-      {url && <ExternalLink href={url.href} target="_blank" rel="noreferrer noopener">{url.text}</ExternalLink>}
-    </Block>
+      {action && (
+        <Button sx={{alignSelf: 'flex-end'}} to={action.to}>
+          {action.text}
+        </Button>
+      )}
+      {url && <Link link={url.href}>{url.text}</Link>}
+    </Flex>
   );
-}
+};
+
+ActionBlock.propTypes = {
+  action: PropTypes.object,
+  content: PropTypes.any,
+  heading: PropTypes.string.isRequired,
+  url: PropTypes.object
+};
+
+export default ActionBlock;
