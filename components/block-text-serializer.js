@@ -143,9 +143,6 @@ BlockRenderer.propTypes = {
 const BlockText = ({blocks}) => {
   return (
     <BlockContent
-      sx={{
-        lineHeight: '26px'
-      }}
       blocks={blocks}
       serializers={{
         types: {

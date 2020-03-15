@@ -1,4 +1,6 @@
 // Theme.js
+import menuUl from './menu';
+
 export default {
   useCustomProperties: true,
   useBodyStyles: true,
@@ -12,7 +14,8 @@ export default {
       fontWeight: '400',
       whiteSpace: 'pre-line',
       textTransform: 'uppercase'
-    }
+    },
+    menuUl
   },
   fonts: {
     body: '"Open Sans", system-ui, sans-serif',
@@ -35,10 +38,10 @@ export default {
   },
   colors: {
     background: '#FFF',
-    text: '#555',
-    primary: '#3C5A72',
-    accent: '#CF9901',
-    light: '#707070',
+    text: '#231f20',
+    primary: '#411f09',
+    accent: '#db5c1e',
+    light: '#f5f5f5',
     link: 'accent',
     banner: '#F1F1F1',
     footerBg: 'text',
@@ -66,6 +69,7 @@ export default {
       // Uses the theme values provided above
       fontFamily: 'body',
       fontWeight: 'body',
+      lineHeight: 'body',
       margin: '0',
       padding: '0',
       backgroundColor: '#fdfdfd',
@@ -137,6 +141,11 @@ export default {
       }
     },
     ul: {
+      fontFamily: 'body',
+      fontWeight: 'body',
+      lineHeight: 'body'
+    },
+    li: {
       fontFamily: 'body',
       fontWeight: 'body',
       lineHeight: 'body'

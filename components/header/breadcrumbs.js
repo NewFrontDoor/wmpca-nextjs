@@ -1,27 +1,33 @@
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
+import Link from '../link';
+import {jsx} from 'theme-ui';
 
-const BreadcrumbWrapper = styled.div`
-  margin: -2px 0px;
-  font-size: 24px;
-  color: #555;
-  text-align: center;
-
-  a {
-    margin-right: 5px;
-    margin-top: -3px;
-    margin-bottom: -1px;
-  }
-`;
-
-export default function Breadcrumbs(breadcrumbs) {
+const Breadcrumbs = ({breadcrumbs}) => {
   return (
-    <BreadcrumbWrapper>
+    <div
+      sx={{m: '-2px 0px', fontSize: '24px', color: 'text', textAlign: 'center'}}
+    >
       <h3>
         {breadcrumbs.map(crumb => {
-          return <a href={crumb.link}>{crumb.title} ← </a>;
+          return (
+            <Link
+              key={crumb.title}
+              passedSx={{m: '-3px 5px -1px 0'}}
+              link={crumb.link}
+            >
+              {crumb.title} ←{' '}
+            </Link>
+          );
         })}
       </h3>
-    </BreadcrumbWrapper>
+    </div>
   );
-}
+};
+
+Breadcrumbs.propTypes = {
+  breadcrumbs: PropTypes.array.isRequired
+};
+
+export default Breadcrumbs;
