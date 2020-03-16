@@ -1052,6 +1052,15 @@
   resolved "https://registry.yarnpkg.com/@newfrontdoor/base/-/base-0.1.2.tgz#e1a1423442e7f13738a13337e4c58e9ed16be2b6"
   integrity sha512-f6P6NUw6oz/jeJmKYOZIx8BJgaSjnr3MKN5uu+SzWuav2BP7rRe66NBAnnLCM30jUrVnZSb6GoZMhc3vmV/pqA==
 
+"@newfrontdoor/blog@^0.2.5":
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/@newfrontdoor/blog/-/blog-0.2.5.tgz#684d10d6b5c8a156d1f487cef60c06c3ad74e00d"
+  integrity sha512-ttLoNICw3vzMMyLVC/bAaBfDQz67bpRudyc86kygG9uWAGVe9HQoqDau9JGKHaNiqYOlp9tQ1A1W1PApqdW0kA==
+  dependencies:
+    date-fns "^2.4.0"
+    prop-types "^15.6.2"
+    reading-time "^1.2.0"
+
 "@newfrontdoor/calendar@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@newfrontdoor/calendar/-/calendar-2.2.0.tgz#f29c05c1018f60c5998fd67a3c4fd76e59a8bd75"
@@ -7797,6 +7806,11 @@ readdirp@~3.3.0:
   integrity sha512-zz0pAkSPOXXm1viEwygWIPSPkcBYjW1xU5j/JBh5t9bGCJwa6f9+BJa6VaB2g+b55yVrmXzqkyLf4xaWYM0IkQ==
   dependencies:
     picomatch "^2.0.7"
+
+reading-time@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/reading-time/-/reading-time-1.2.0.tgz#ced71c06715762f805506328dcc1fd45d8249ac4"
+  integrity sha512-5b4XmKK4MEss63y0Lw0vn0Zn6G5kiHP88mUnD8UeEsyORj3sh1ghTH0/u6m1Ax9G2F4wUZrknlp6WlIsCvoXVA==
 
 recast@0.18.5:
   version "0.18.5"
