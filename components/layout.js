@@ -57,12 +57,10 @@ const Layout = ({menuItems, children}) => (
         </div>
       </FooterBox>
       <FooterIcons
-        /* Twitter={{url: 'test'}}
-            instagram={{url: 'test'}}
-            podcast={{url: 'test'}}
-                login={{url: 'test'}} */
-
-        facebook={{url: 'https://www.facebook.com/wmpres/'}}
+        social={[
+          {type: 'facebook', url: 'https://www.facebook.com/wmpres/'},
+          {type: 'login', url: 'https://wmpca.sanity.studio/'}
+        ]}
       />
       <FooterBox area="sidebar2">
         {/* <LatestSermon
