@@ -14,11 +14,11 @@ import {
 import {jsx} from 'theme-ui';
 import Link from '../link';
 
-const wrapperStyles = {
-  gridArea: 'primary',
+const wrapperStyles = social => ({
+  width: social.length > 2 ? '100%' : '50%',
   display: 'grid',
   gridAutoFlow: 'column',
-  margin: '0',
+  margin: 'auto',
   marginBottom: ['40px', '40px', 0],
   padding: ['0', '0 20%', '0'],
   justifyItems: 'center',
@@ -33,7 +33,7 @@ const wrapperStyles = {
       background: '#edb512'
     }
   }
-};
+});
 
 const iconStyle = {
   color: 'white',
@@ -51,13 +51,17 @@ const getIcon = {
   vimeo: <FaVimeoV sx={iconStyle} />,
   rss: <FaRss sx={iconStyle} />,
   podcast: <FaPodcast sx={iconStyle} />,
-  elvanto: <img sx={iconStyle} src="/elvanto-icon.svg" />,
   login: <FaUserLock sx={iconStyle} />
 };
 
 const FooterIcons = ({social}) => {
+  console.log(social.length > 2);
   return (
-    <ul sx={wrapperStyles}>
+    <ul
+      sx={{
+        ...wrapperStyles(social)
+      }}
+    >
       {social.map(icon => (
         <li key={icon.url}>
           <Link link={icon.url}>{getIcon[icon.type]}</Link>

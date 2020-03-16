@@ -1,73 +1,45 @@
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
-import {
-  contact,
-  menu /* Slides, heading, about, newsletter, connect, blog, welcome, portfolio */
-} from '../data/app-content';
+import {jsx, Grid} from 'theme-ui';
+import PropTypes from 'prop-types';
+
 import Sidebar from './sidebar/sidebar';
 import FooterIcons from './footer/footer-icons';
 import Footer from './footer/footer';
-import ActionBlock from './action-block';
-
-const Container = styled.div`
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: unset;
-  gap: 0;
-  @media (min-width: 640px) {
-    grid-template-columns: 170px 1fr;
-    gap: 30px;
-    grid-template-areas:
-      'sidebar header'
-      'sidebar main';
-  }
-`;
-
-const FooterBox = styled.div`
-  display: flex;
-  justify-content: center;
-  grid-area: ${props => props.area};
-  min-height: 100px;
-`;
+import FooterBox from './footer/footer-box';
+// Import ActionBlock from './action-block';
 
 const Layout = ({menuItems, children}) => (
   <>
-    <Container>
+    <Grid
+      gap={[0, '30px']}
+      columns={[1, '170px 1fr']}
+      sx={{
+        margin: 'auto',
+        maxWidth: '1200px',
+        gridTemplateAreas: ['unset', "'sidebar header' 'sidebar main'"]
+      }}
+    >
       <Sidebar img menuItems={menuItems} />
       {children}
-    </Container>
+    </Grid>
+
     <Footer
       subtext={`© WOMENS MINISTRY IN THE PRESBYTERIAN CHURCH OF AUSTRALIA ${new Date().getFullYear()}. IN PARTNERSHIP WITH NEW FRONT DOOR`}
     >
-      <FooterBox area="sidebar">
-        <div>
-          {contact.content[1].map(item => (
-            <ActionBlock
-              key={item.heading}
-              heading={item.heading}
-              content={item.content}
-              action={item.action}
-              url={item.url}
-            />
-          ))}
-        </div>
+      <FooterBox area="sidebar-a">
+        <p />
       </FooterBox>
-      <FooterIcons
-        social={[
-          {type: 'facebook', url: 'https://www.facebook.com/wmpres/'},
-          {type: 'login', url: 'https://wmpca.sanity.studio/'}
-        ]}
-      />
-      <FooterBox area="sidebar2">
-        {/* <LatestSermon
-                title="Test"
-                preacher="Test Guy"
-                sermonUrl="www.google.com"
-            /> */}
+      <FooterBox area="primary">
+        <FooterIcons
+          social={[
+            {type: 'facebook', url: 'https://www.facebook.com/wmpres/'},
+            {type: 'login', url: 'https://wmpca.sanity.studio/'}
+          ]}
+        />
+      </FooterBox>
+      <FooterBox area="sidebar-b">
+        <p />
       </FooterBox>
       <FooterBox area="tertiary">
         <p />
@@ -75,5 +47,10 @@ const Layout = ({menuItems, children}) => (
     </Footer>
   </>
 );
+
+Layout.propTypes = {
+  children: PropTypes.any,
+  menuItems: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default Layout;
