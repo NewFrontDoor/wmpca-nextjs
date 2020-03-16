@@ -16,7 +16,7 @@ import {Grid, jsx} from 'theme-ui';
 const Home = ({mainData, menuData}) => {
   const {heading, images, welcome} = mainData;
   return (
-    <Layout menuItems={menuData.menuitems}>
+    <Layout menuItems={menuData.menuitems} footer={menuData.footer}>
       <Grid gap={20}>
         <Header heading={heading} />
         {images && (
@@ -53,23 +53,3 @@ Home.getInitialProps = async () => {
 
   return results;
 };
-
-/*
-Export default function FrontPage({
-  heading,
-  panels,
-  portfolio,
-  contact,
-  slides,
-  welcome
-}) {
-  return (
-    <Grid>
-      <Header heading={heading} />
-      
-
-      
-    </Grid>
-  );
-}
-*/

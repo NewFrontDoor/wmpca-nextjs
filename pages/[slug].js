@@ -12,7 +12,7 @@ const Page = ({mainData, menuData}) => {
   const {content, title, mainImage} = mainData;
 
   return (
-    <Layout menuItems={menuData.menuitems}>
+    <Layout menuItems={menuData.menuitems} footer={menuData.footer}>
       <Grid gap={20}>
         <Header heading={title} />
         {mainImage && <MainImage mainImage={mainImage} />}
@@ -20,7 +20,7 @@ const Page = ({mainData, menuData}) => {
       </Grid>
     </Layout>
   );
-}
+};
 
 Page.propTypes = {
   mainData: PropTypes.array.isRequired,
@@ -28,6 +28,7 @@ Page.propTypes = {
 };
 
 Page.getInitialProps = async ({query}) => {
+  console.log(query);
   const results = await fetchQuery(`
     {
       "mainData": ${pageQuery(query.slug)},

@@ -55,7 +55,15 @@ export default function Footer({children, subtext}) {
     <Wrapper>
       <Grid>{children}</Grid>
       <hr style={{border: '1px solid #333', width: '90%'}} />
-      <div style={{textAlign: 'center', fontSize: '12px'}}>{subtext}</div>
+      <div
+        style={{
+          textAlign: 'center',
+          fontSize: '12px',
+          textTransform: 'uppercase'
+        }}
+      >
+        {subtext}
+      </div>
     </Wrapper>
   );
 }

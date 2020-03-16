@@ -9,7 +9,7 @@ import Footer from './footer/footer';
 import FooterBox from './footer/footer-box';
 // Import ActionBlock from './action-block';
 
-const Layout = ({menuItems, children}) => (
+const Layout = ({menuItems, children, footer}) => (
   <>
     <Grid
       gap={[0, '30px']}
@@ -24,19 +24,12 @@ const Layout = ({menuItems, children}) => (
       {children}
     </Grid>
 
-    <Footer
-      subtext={`© WOMENS MINISTRY IN THE PRESBYTERIAN CHURCH OF AUSTRALIA ${new Date().getFullYear()}. IN PARTNERSHIP WITH NEW FRONT DOOR`}
-    >
+    <Footer subtext={footer.copyright}>
       <FooterBox area="sidebar-a">
         <p />
       </FooterBox>
       <FooterBox area="primary">
-        <FooterIcons
-          social={[
-            {type: 'facebook', url: 'https://www.facebook.com/wmpres/'},
-            {type: 'login', url: 'https://wmpca.sanity.studio/'}
-          ]}
-        />
+        <FooterIcons social={footer.social} />
       </FooterBox>
       <FooterBox area="sidebar-b">
         <p />
@@ -50,7 +43,11 @@ const Layout = ({menuItems, children}) => (
 
 Layout.propTypes = {
   children: PropTypes.any,
-  menuItems: PropTypes.arrayOf(PropTypes.object)
+  menuItems: PropTypes.arrayOf(PropTypes.object),
+  footer: PropTypes.shape({
+    copyright: PropTypes.string.isRequired,
+    social: PropTypes.arrayOf(PropTypes.object).isRequired
+  }).isRequired
 };
 
 export default Layout;
