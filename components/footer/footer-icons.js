@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import PropTypes from 'prop-types';
 import {
   FaTwitter,
   FaFacebookF,
@@ -10,129 +11,64 @@ import {
   FaPodcast,
   FaUserLock
 } from 'react-icons/fa';
-import styled from '@emotion/styled';
-import {css, jsx} from '@emotion/core';
+import {jsx} from 'theme-ui';
+import Link from '../link';
 
-const Icons = styled.ul`
-  grid-area: primary;
-  display: grid;
-  grid-auto-flow: column;
-  margin: 0;
-  margin-bottom: 40px;
-  padding: 0;
-  justify-items: center;
-  li {
-    list-style: none;
-    display: inline;
-    display: inline-block;
-    background: #565a5c;
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
+const wrapperStyles = {
+  gridArea: 'primary',
+  display: 'grid',
+  gridAutoFlow: 'column',
+  margin: '0',
+  marginBottom: ['40px', '40px', 0],
+  padding: ['0', '0 20%', '0'],
+  justifyItems: 'center',
+  listStyle: 'none',
+  li: {
+    display: 'inline-block',
+    background: '#565a5c',
+    borderRadius: '50%',
+    height: '50px',
+    width: '50px',
+    '&:hover': {
+      background: '#edb512'
+    }
   }
-  li:hover {
-    background: #edb512;
-  }
-  @media (min-width: 788px) {
-    padding: 0 20%;
-  }
-  @media (min-width: 1086px) {
-    margin: 0;
-    padding: 0;
-  }
-`;
+};
 
-const iconStyle = css`
-  color: white;
-  padding: 10px;
-  height: 30px;
-  width: 30px;
-`;
+const iconStyle = {
+  color: 'white',
+  padding: '10px',
+  height: '100%',
+  width: '100%'
+};
 
-export default function FooterIcons({
-  twitter,
-  facebook,
-  instagram,
-  elvanto,
-  linkedin,
-  youtube,
-  vimeo,
-  rss,
-  podcast,
-  login
-}) {
+const getIcon = {
+  twitter: <FaTwitter sx={iconStyle} />,
+  facebook: <FaFacebookF sx={iconStyle} />,
+  instagram: <FaInstagram sx={iconStyle} />,
+  linkedin: <FaLinkedinIn sx={iconStyle} />,
+  youtube: <FaYoutube sx={iconStyle} />,
+  vimeo: <FaVimeoV sx={iconStyle} />,
+  rss: <FaRss sx={iconStyle} />,
+  podcast: <FaPodcast sx={iconStyle} />,
+  elvanto: <img sx={iconStyle} src="/elvanto-icon.svg" />,
+  login: <FaUserLock sx={iconStyle} />
+};
+
+const FooterIcons = ({social}) => {
   return (
-    <Icons>
-      {twitter && (
-        <li>
-          <a href={twitter.url} target="_blank" rel="noopener noreferrer">
-            <FaTwitter css={iconStyle} />
-          </a>
+    <ul sx={wrapperStyles}>
+      {social.map(icon => (
+        <li key={icon.url}>
+          <Link link={icon.url}>{getIcon[icon.type]}</Link>
         </li>
-      )}
-      {facebook && (
-        <li>
-          <a href={facebook.url} target="_blank" rel="noopener noreferrer">
-            <FaFacebookF css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {instagram && (
-        <li>
-          <a href={instagram.url} target="_blank" rel="noopener noreferrer">
-            <FaInstagram css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {linkedin && (
-        <li>
-          <a href={linkedin.url} target="_blank" rel="noopener noreferrer">
-            <FaLinkedinIn css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {youtube && (
-        <li>
-          <a href={youtube.url} target="_blank" rel="noopener noreferrer">
-            <FaYoutube css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {vimeo && (
-        <li>
-          <a href={vimeo.url} target="_blank" rel="noopener noreferrer">
-            <FaVimeoV css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {rss && (
-        <li>
-          <a href={rss.url} target="_blank" rel="noopener noreferrer">
-            <FaRss css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {podcast && (
-        <li>
-          <a href={podcast.url} target="_blank" rel="noopener noreferrer">
-            <FaPodcast css={iconStyle} />
-          </a>
-        </li>
-      )}
-      {elvanto && (
-        <li>
-          <a href={elvanto.url} target="_blank" rel="noopener noreferrer">
-            <img style={iconStyle} src="/elvanto-icon.svg"/>
-          </a>
-        </li>
-      )}
-      {login && (
-        <li>
-          <a href={login.url} target="_blank" rel="noopener noreferrer">
-            <FaUserLock css={iconStyle} />
-          </a>
-        </li>
-      )}
-    </Icons>
+      ))}
+    </ul>
   );
-}
+};
+
+FooterIcons.propTypes = {
+  social: PropTypes.arrayOf(PropTypes.object)
+};
+
+export default FooterIcons;
