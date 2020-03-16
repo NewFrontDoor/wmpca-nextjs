@@ -1,7 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Carousel from '@newfrontdoor/carousel';
-import styled from '@emotion/styled';
 import Contact from '../templates/contact';
 import Panels from '../components/panels';
 import Portfolio from '../components/portfolio';
@@ -11,34 +11,26 @@ import Layout from '../components/layout';
 import {fetchQuery} from '../lib/sanity';
 import {mainQuery, menuQuery} from '../lib/queries';
 import urlFor from '../lib/sanityImg';
-
-const Slide = styled.img`
-  width: 100%;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  gap: 20px;
-`;
+import {Grid, jsx} from 'theme-ui';
 
 const Home = ({mainData, menuData}) => {
   const {heading, images, welcome} = mainData;
   return (
     <Layout menuItems={menuData.menuitems}>
-      <Grid>
+      <Grid gap={20}>
         <Header heading={heading} />
         {images && (
           <Carousel style={{height: '400px'}}>
             {images.map(slide => (
-              <Slide key={slide._key} src={urlFor(slide)} />
+              <img key={slide._key} sx={{width: '100%'}} src={urlFor(slide)} />
             ))}
           </Carousel>
         )}
-        {/*{panels && <Panels />}
+        {/* {panels && <Panels />}
 
         {portfolio && <Portfolio portfolio={portfolio} />}
-        {contact && <Contact map={contact.map} contact={contact.content} />}*/}
-        {welcome && <BlockText blocks={welcome} />}
+        {contact && <Contact map={contact.map} contact={contact.content} />} */}
+        <main>{welcome && <BlockText blocks={welcome} />}</main>
       </Grid>
     </Layout>
   );

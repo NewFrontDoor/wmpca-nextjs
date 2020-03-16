@@ -1,15 +1,11 @@
+/** @jsx jsx */
 import React from 'react';
-import styled from '@emotion/styled';
+import {jsx} from 'theme-ui';
 
-
-const Div = styled.div`
-  min-height: 300px;
-`;
-
-export default () =>  {
+export default () => {
   return (
-    <Div>
-      Read or listen to a daily Devotional by John Piper. 
-    </Div>
+    <div sx={{minHeight: '300px'}}>
+      Read or listen to a daily Devotional by John Piper.
+    </div>
   );
-}
+};

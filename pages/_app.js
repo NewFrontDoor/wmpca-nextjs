@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import App from 'next/app';
 import {ThemeProvider, Styled} from 'theme-ui';
-import theme from '../lib/theme';
+import theme from '../theme/theme';
 require('typeface-open-sans');
 
 class MyApp extends App {

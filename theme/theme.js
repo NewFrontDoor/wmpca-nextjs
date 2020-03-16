@@ -1,4 +1,6 @@
 // Theme.js
+import menuUl from './menu';
+
 export default {
   useCustomProperties: true,
   useBodyStyles: true,
@@ -12,6 +14,12 @@ export default {
       fontWeight: '400',
       whiteSpace: 'pre-line',
       textTransform: 'uppercase'
+    },
+    menuUl,
+    breadcrumb: {
+      fontSize: '24px',
+      color: 'text',
+      textAlign: 'center'
     }
   },
   fonts: {
@@ -35,10 +43,10 @@ export default {
   },
   colors: {
     background: '#FFF',
-    text: '#555',
-    primary: '#3C5A72',
-    accent: '#CF9901',
-    light: '#707070',
+    text: '#231f20',
+    primary: '#411f09',
+    accent: '#db5c1e',
+    light: '#f5f5f5',
     link: 'accent',
     banner: '#F1F1F1',
     footerBg: 'text',
@@ -66,6 +74,7 @@ export default {
       // Uses the theme values provided above
       fontFamily: 'body',
       fontWeight: 'body',
+      lineHeight: 'body',
       margin: '0',
       padding: '0',
       backgroundColor: '#fdfdfd',
@@ -140,9 +149,27 @@ export default {
       fontFamily: 'body',
       fontWeight: 'body',
       lineHeight: 'body'
+    },
+    li: {
+      fontFamily: 'body',
+      fontWeight: 'body',
+      lineHeight: 'body'
     }
   },
   buttons: {
+    primary: {
+      padding: '4px 12px',
+      fontSize: '14px',
+      lineHeight: '20px',
+      cursor: 'pointer',
+      border: '1px solid #cccccc',
+      borderColor: 'rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)',
+      borderBottomColor: '#b3b3b3',
+      borderRadius: '4px',
+      backgroundColor: '#565a5c',
+      color: '#ffffff',
+      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif"
+    },
     home: {
       fontFamily: 'body',
       borderRadius: '3px',

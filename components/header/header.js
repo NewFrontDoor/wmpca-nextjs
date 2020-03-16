@@ -6,7 +6,7 @@ import Breadcrumbs from './breadcrumbs';
 
 const Header = ({heading, breadcrumbs}) => {
   return (
-    <div
+    <header
       sx={{
         padding: '10px 20px',
         background: '#333',
@@ -14,9 +14,11 @@ const Header = ({heading, breadcrumbs}) => {
         margin: [null, '20px 0px']
       }}
     >
-      <Text as="h1" variant="pageheading">{heading}</Text>
+      <Text as="h1" variant="pageheading">
+        {heading}
+      </Text>
       {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
-    </div>
+    </header>
   );
 };
 
