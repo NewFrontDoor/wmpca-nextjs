@@ -15,22 +15,22 @@ const Grid = styled.div`
   grid-template-columns: 1fr;
   grid-template-areas:
     'primary'
-    'sidebar2'
-    'sidebar'
+    'sidebar-b'
+    'sidebar-a'
     'tertiary';
   @media (min-width: 700px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas:
       'primary primary'
-      'sidebar sidebar2'
+      'sidebar-a sidebar-b'
       'tertiary tertiary';
     justify-content: space-around;
   }
   @media (min-width: 1086px) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-      'sidebar primary sidebar2'
-      'sidebar tertiary sidebar2';
+      'sidebar-a primary sidebar-b'
+      'sidebar-a tertiary sidebar-b';
   }
 
   #footer h4 {

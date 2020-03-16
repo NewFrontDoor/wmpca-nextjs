@@ -214,6 +214,11 @@ export default {
       mx: 'auto',
       bg: 'background',
       color: 'text'
+    },
+    footer: {
+      display: 'flex',
+      justifyContent: 'center',
+      minHeight: '100px'
     }
   },
   forms: {
