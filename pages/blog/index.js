@@ -20,7 +20,15 @@ const Blog = ({mainData, menuData, blogPosts}) => {
         {mainImage && <MainImage mainImage={mainImage} />}
         <BlockText blocks={content} />
         <BlogBody
+          dateFormat="EEEE, MMMM do yyyy"
           posts={blogPosts}
+          overrides={{
+            paddingTop: 0,
+            height: 'fit-content',
+            maxHeight: '500px',
+            top: '20px',
+            fontFamily: 'body'
+          }}
           link={data => <Link link={data}>{data}</Link>}
           blockText={content => <BlockText blocks={content} />}
         />
