@@ -16,7 +16,7 @@
     "@emotion/is-prop-valid": "^0.8.8",
     "@emotion/styled": "^10.0.27",
     "@newfrontdoor/audio-player": "^0.1.8",
-    "@newfrontdoor/blog": "^0.3.2",
+    "@newfrontdoor/blog": "^0.3.3",
     "@newfrontdoor/calendar": "^2.2.0",
     "@newfrontdoor/carousel": "^1.0.0",
     "@newfrontdoor/form": "^0.5.6",

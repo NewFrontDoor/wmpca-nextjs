@@ -9,6 +9,7 @@ import Layout from '../../components/layout';
 import BlockText from '../../components/block-text-serializer';
 import Link from '../../components/link';
 import {pageQuery, menuQuery, blogPageQuery} from '../../lib/queries';
+import { blocksToText } from '../../lib/sanity-fns';
 
 const Blog = ({mainData, menuData, blogPosts}) => {
   const {content, title, mainImage} = mainData;
@@ -31,6 +32,7 @@ const Blog = ({mainData, menuData, blogPosts}) => {
           }}
           link={data => <Link link={data}>{data}</Link>}
           blockText={content => <BlockText blocks={content} />}
+          bodyTransform={body => blocksToText(body)}
         />
       </Grid>
     </Layout>
