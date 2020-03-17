@@ -7,9 +7,26 @@ import {fetchQuery} from '../../lib/sanity';
 import MainImage from '../../components/main-image';
 import Layout from '../../components/layout';
 import BlockText from '../../components/block-text-serializer';
-import Link from '../../components/link';
-import {pageQuery, menuQuery, blogPageQuery} from '../../lib/queries';
-import { blocksToText } from '../../lib/sanity-fns';
+import BasicLink from 'next/link';
+import {blocksToText} from '../../lib/sanity-fns';
+import {
+  pageQuery,
+  menuQuery,
+  blogPageQuery,
+  blogSearchQuery
+} from '../../lib/queries';
+
+const Link = ({link, data, children}) => {
+  return (
+    <BasicLink
+      passHref
+      href={`/blog?search=${link}`}
+      as={`/blog?search=${data?.slug?.current || link}`}
+    >
+      <a>{children}</a>
+    </BasicLink>
+  );
+};
 
 const Blog = ({mainData, menuData, blogPosts}) => {
   const {content, title, mainImage} = mainData;
@@ -30,7 +47,7 @@ const Blog = ({mainData, menuData, blogPosts}) => {
             top: '20px',
             fontFamily: 'body'
           }}
-          link={data => <Link link={data}>{data}</Link>}
+          Link={Link}
           blockText={content => <BlockText blocks={content} />}
           bodyTransform={body => blocksToText(body)}
         />
@@ -40,17 +57,22 @@ const Blog = ({mainData, menuData, blogPosts}) => {
 };
 
 Blog.propTypes = {
-  mainData: PropTypes.object.isRequired,
+  mainData: PropTypes.shape({
+    content: PropTypes.array,
+    title: PropTypes.string,
+    mainImage: PropTypes.string
+  }).isRequired,
   menuData: PropTypes.object.isRequired,
   blogPosts: PropTypes.array.isRequired
 };
 
-Blog.getInitialProps = async () => {
+Blog.getInitialProps = async ({query}) => {
+  const blogs = query.search ? blogSearchQuery(query.search) : blogPageQuery;
   const results = await fetchQuery(`
     {
       "mainData": ${pageQuery('blog')},
       "menuData": ${menuQuery},
-      "blogPosts": ${blogPageQuery}
+      "blogPosts": ${blogs}
     }
     `);
   return results;

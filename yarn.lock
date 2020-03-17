@@ -1052,10 +1052,10 @@
   resolved "https://registry.yarnpkg.com/@newfrontdoor/base/-/base-0.1.2.tgz#e1a1423442e7f13738a13337e4c58e9ed16be2b6"
   integrity sha512-f6P6NUw6oz/jeJmKYOZIx8BJgaSjnr3MKN5uu+SzWuav2BP7rRe66NBAnnLCM30jUrVnZSb6GoZMhc3vmV/pqA==
 
-"@newfrontdoor/blog@^0.3.3":
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/@newfrontdoor/blog/-/blog-0.3.3.tgz#92b28bdbff93ed8fc9a4b49203656712b1103448"
-  integrity sha512-Ex7NCI3s43kEqaCfxdgVStZoDSavK/1p+eMSyNabM7tzT8IBJfv1OX3axcs22597BHrgld2dmYr/ZVKdwDYB0Q==
+"@newfrontdoor/blog@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@newfrontdoor/blog/-/blog-0.5.0.tgz#decd6d59009dbdbe943c796b35faaf754fd791fd"
+  integrity sha512-2f/5punH24+E8vL0SYwPBNfc9rQ4balZkKnSe1clJuuQvL9jAtJzD7dUtaJDrA3lEnTNChYv9dhlV6/P2b+XgQ==
   dependencies:
     date-fns "^2.4.0"
     prop-types "^15.6.2"

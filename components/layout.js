@@ -20,7 +20,7 @@ const Layout = ({menuItems, children, footer}) => (
         gridTemplateAreas: ['unset', "'sidebar header' 'sidebar main'"]
       }}
     >
-      <Sidebar img menuItems={menuItems} />
+      <Sidebar menuItems={menuItems} />
       {children}
     </Grid>
 

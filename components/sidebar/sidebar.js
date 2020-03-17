@@ -5,7 +5,7 @@ import {jsx} from 'theme-ui';
 import Logo from './logo';
 import Menu from './menu';
 
-const SideBar = ({img, menuItems}) => {
+const SideBar = ({menuItems}) => {
   return (
     <nav
       sx={{
@@ -17,14 +17,13 @@ const SideBar = ({img, menuItems}) => {
         marginTop: [null, '28px']
       }}
     >
-      <Logo img={img} />
+      <Logo />
       <Menu menuItems={menuItems} />
     </nav>
   );
 };
 
 SideBar.propTypes = {
-  img: PropTypes.string,
   menuItems: PropTypes.arrayOf(PropTypes.object)
 };
 
