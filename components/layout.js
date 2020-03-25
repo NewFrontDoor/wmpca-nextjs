@@ -2,7 +2,6 @@
 import React from 'react';
 import {jsx, Grid} from 'theme-ui';
 import PropTypes from 'prop-types';
-
 import Sidebar from './sidebar/sidebar';
 import FooterIcons from './footer/footer-icons';
 import Footer from './footer/footer';

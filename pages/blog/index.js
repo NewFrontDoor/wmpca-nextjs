@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Grid} from 'theme-ui';
+import {Grid, Styled} from 'theme-ui';
 import {Blog as BlogBody} from '@newfrontdoor/blog';
 import Header from '../../components/header/header';
 import {fetchQuery} from '../../lib/sanity';
@@ -15,6 +15,7 @@ import {
   blogPageQuery,
   blogSearchQuery
 } from '../../lib/queries';
+import { withEmotionCache } from '@emotion/core';
 
 const Link = ({link, data, children}) => {
   return (
@@ -23,7 +24,7 @@ const Link = ({link, data, children}) => {
       href={`/blog?search=${link}`}
       as={`/blog?search=${data?.slug?.current || link}`}
     >
-      <a>{children}</a>
+      <Styled.a>{children}</Styled.a>
     </BasicLink>
   );
 };
@@ -45,7 +46,8 @@ const Blog = ({mainData, menuData, blogPosts}) => {
             height: 'fit-content',
             maxHeight: '500px',
             top: '20px',
-            fontFamily: 'body'
+            fontFamily: 'body',
+            lineHeight: 1
           }}
           Link={Link}
           blockText={content => <BlockText blocks={content} />}
