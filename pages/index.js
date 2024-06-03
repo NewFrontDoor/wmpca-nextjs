@@ -23,11 +23,7 @@ const Home = ({ mainData, menuData }) => {
 				{images && (
 					<Carousel style={{ height: "400px" }}>
 						{images.map((slide) => (
-							<img
-								key={slide._key}
-								sx={{ width: "100%" }}
-								src={urlFor(slide)}
-							/>
+							<img key={slide._key} sx={{ width: "100%" }} src={urlFor(slide)} alt="" />
 						))}
 					</Carousel>
 				)}
@@ -43,7 +39,7 @@ const Home = ({ mainData, menuData }) => {
 
 Home.propTypes = {
 	mainData: PropTypes.object.isRequired,
-	menuData: PropTypes.object.isRequired,
+	menuData: PropTypes.object.isRequired
 };
 
 export default Home;

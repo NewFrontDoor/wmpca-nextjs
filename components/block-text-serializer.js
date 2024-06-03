@@ -18,7 +18,7 @@ const AudioSerializer = ({ node }) => {
 };
 
 AudioSerializer.propTypes = {
-	node: PropTypes.object.isRequired,
+	node: PropTypes.object.isRequired
 };
 
 const VideoSerializer = ({ node }) => {
@@ -27,15 +27,7 @@ const VideoSerializer = ({ node }) => {
 		const video = getVideoId(url || null);
 
 		if (video.service === "youtube") {
-			return (
-				<Youtube
-					modestBranding
-					annotations={false}
-					video={video.id}
-					height={360}
-					width={640}
-				/>
-			);
+			return <Youtube modestBranding annotations={false} video={video.id} height={360} width={640} />;
 		}
 
 		if (video.service === "vimeo") {
@@ -45,7 +37,7 @@ const VideoSerializer = ({ node }) => {
 };
 
 VideoSerializer.propTypes = {
-	node: PropTypes.object.isRequired,
+	node: PropTypes.object.isRequired
 };
 
 const CustomStyleSerializer = ({ children }) => {
@@ -53,7 +45,7 @@ const CustomStyleSerializer = ({ children }) => {
 };
 
 CustomStyleSerializer.propTypes = {
-	children: PropTypes.string.isRequired,
+	children: PropTypes.string.isRequired
 };
 
 const AnchorSerializer = ({ children, mark }) => {
@@ -62,15 +54,15 @@ const AnchorSerializer = ({ children, mark }) => {
 
 AnchorSerializer.propTypes = {
 	children: PropTypes.array.isRequired,
-	mark: PropTypes.object.isRequired,
+	mark: PropTypes.object.isRequired
 };
 
 const ImageSerializer = ({ node }) => {
-	return <img src={urlFor(node).url()} />;
+	return <img src={urlFor(node).url()} alt="" />;
 };
 
 ImageSerializer.propTypes = {
-	node: PropTypes.node.isRequired,
+	node: PropTypes.node.isRequired
 };
 
 const FormSerializer = ({ node }) => {
@@ -85,7 +77,7 @@ const FormSerializer = ({ node }) => {
 };
 
 FormSerializer.propTypes = {
-	node: PropTypes.object.isRequired,
+	node: PropTypes.object.isRequired
 };
 
 const InternalLinkSerializer = ({ mark, children }) => (
@@ -94,22 +86,20 @@ const InternalLinkSerializer = ({ mark, children }) => (
 	</Link>
 );
 
-const ExternalLinkSerializer = ({ mark, children }) => (
-	<Link link={mark.href}>{children}</Link>
-);
+const ExternalLinkSerializer = ({ mark, children }) => <Link link={mark.href}>{children}</Link>;
 
 InternalLinkSerializer.propTypes = {
 	children: PropTypes.array.isRequired,
 	mark: PropTypes.shape({
-		slug: PropTypes.string,
-	}).isRequired,
+		slug: PropTypes.string
+	}).isRequired
 };
 
 ExternalLinkSerializer.propTypes = {
 	children: PropTypes.array.isRequired,
 	mark: PropTypes.shape({
-		href: PropTypes.string,
-	}).isRequired,
+		href: PropTypes.string
+	}).isRequired
 };
 
 const BlockRenderer = (props) => {
@@ -121,7 +111,7 @@ const BlockRenderer = (props) => {
 		h3: <Styled.h3>{props.children}</Styled.h3>,
 		h4: <Styled.h4>{props.children}</Styled.h4>,
 		h5: <Styled.h5>{props.children}</Styled.h5>,
-		h6: <Styled.h6>{props.children}</Styled.h6>,
+		h6: <Styled.h6>{props.children}</Styled.h6>
 	};
 
 	if (/^h\d/.test(style)) {
@@ -138,7 +128,7 @@ const BlockRenderer = (props) => {
 
 BlockRenderer.propTypes = {
 	children: PropTypes.any,
-	node: PropTypes.object.isRequired,
+	node: PropTypes.object.isRequired
 };
 
 const BlockText = ({ blocks }) => {
@@ -152,20 +142,20 @@ const BlockText = ({ blocks }) => {
 					form: FormSerializer,
 					image: ImageSerializer,
 					audioEmbed: AudioSerializer,
-					videoEmbed: VideoSerializer,
+					videoEmbed: VideoSerializer
 				},
 				marks: {
 					anchor: AnchorSerializer,
 					internalLink: InternalLinkSerializer,
-					link: ExternalLinkSerializer,
-				},
+					link: ExternalLinkSerializer
+				}
 			}}
 		/>
 	);
 };
 
 BlockText.propTypes = {
-	blocks: PropTypes.array.isRequired,
+	blocks: PropTypes.array.isRequired
 };
 
 export default BlockText;
