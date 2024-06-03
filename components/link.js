@@ -3,6 +3,8 @@ import React from "react";
 import NextLink from "next/link";
 import { Link as ThemeUiLink } from "theme-ui";
 
+//TODO: replace all instances of this component with next/link and remove it
+
 const pageLookup = (link) => {
 	// This depends on the fact that no sub-subdirectory of pages contains an index file
 	if (link.includes("/")) {
@@ -17,7 +19,7 @@ const pageLookup = (link) => {
 	switch (link) {
 		case "":
 		case "blog":
-			return `//blog/${link}`;
+			return `/blog/${link}`;
 		default:
 			return `/${link}`;
 	}

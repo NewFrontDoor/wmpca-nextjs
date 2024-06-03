@@ -24,7 +24,7 @@ const Page = ({ mainData, menuData }) => {
 
 Page.propTypes = {
 	mainData: PropTypes.array.isRequired,
-	menuData: PropTypes.array.isRequired,
+	menuData: PropTypes.array.isRequired
 };
 
 Page.getInitialProps = async ({ query }) => {

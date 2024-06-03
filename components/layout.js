@@ -17,7 +17,7 @@ const Layout = ({ menuItems, children, footer }) => (
 			sx={{
 				margin: "auto",
 				maxWidth: "1200px",
-				gridTemplateAreas: ["unset", "'sidebar header' 'sidebar main'"],
+				gridTemplateAreas: ["unset", "'sidebar header' 'sidebar main'"]
 			}}
 		>
 			<Sidebar menuItems={menuItems} />
@@ -46,8 +46,8 @@ Layout.propTypes = {
 	menuItems: PropTypes.arrayOf(PropTypes.object),
 	footer: PropTypes.shape({
 		copyright: PropTypes.string.isRequired,
-		social: PropTypes.arrayOf(PropTypes.object).isRequired,
-	}).isRequired,
+		social: PropTypes.arrayOf(PropTypes.object).isRequired
+	}).isRequired
 };
 
 export default Layout;

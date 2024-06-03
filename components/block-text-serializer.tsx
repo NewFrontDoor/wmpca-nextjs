@@ -4,14 +4,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import BlockContent from "@sanity/block-content-to-react";
 import { Styled, jsx } from "theme-ui";
-import Link from "./link";
 import urlFor from "../lib/sanityImg";
 import { Form, validation } from "@newfrontdoor/form";
 import getVideoId from "get-video-id";
 import Vimeo from "@u-wave/react-vimeo";
-// Import Youtube from 'react-youtube';
 import Youtube from "@u-wave/react-youtube";
 import { StyledPlayer } from "@newfrontdoor/audio-player";
+import Link from "next/link";
 
 const AudioSerializer = ({ node }) => {
 	return <StyledPlayer audio={node.url} isInvert={false} width="300px" />;
@@ -27,6 +26,7 @@ const VideoSerializer = ({ node }) => {
 		const video = getVideoId(url || null);
 
 		if (video.service === "youtube") {
+			//@ts-expect-error
 			return <Youtube modestBranding annotations={false} video={video.id} height={360} width={640} />;
 		}
 
@@ -58,7 +58,7 @@ AnchorSerializer.propTypes = {
 };
 
 const ImageSerializer = ({ node }) => {
-	return <img src={urlFor(node).url()} alt="" />;
+	return <img src={urlFor(node).url() || ""} alt="" />;
 };
 
 ImageSerializer.propTypes = {
@@ -70,6 +70,7 @@ const FormSerializer = ({ node }) => {
 		<Form
 			{...node}
 			validationFn={(values) => validation(values, node)}
+			//@ts-expect-error
 			blockText={(val) => <BlockText blocks={val} />}
 			submitForm={(values) => console.log(values)}
 		/>
@@ -80,13 +81,21 @@ FormSerializer.propTypes = {
 	node: PropTypes.object.isRequired
 };
 
-const InternalLinkSerializer = ({ mark, children }) => (
-	<Link link={mark.slug}>
+const InternalLinkSerializer = ({ mark, children }) => {
+	return (
+		//@ts-expect-error
+		<Link href={mark.slug || ""} passHref>
+			<Styled.a>{children}</Styled.a>
+		</Link>
+	);
+};
+
+const ExternalLinkSerializer = ({ mark, children }) => (
+	//@ts-expect-error
+	<Link href={mark.href} passHref>
 		<Styled.a>{children}</Styled.a>
 	</Link>
 );
-
-const ExternalLinkSerializer = ({ mark, children }) => <Link link={mark.href}>{children}</Link>;
 
 InternalLinkSerializer.propTypes = {
 	children: PropTypes.array.isRequired,

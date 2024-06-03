@@ -30,7 +30,7 @@
 		"@zeit/next-css": "^1.0.1",
 		"babel-plugin-inline-react-svg": "^1.1.1",
 		"get-video-id": "^3.1.4",
-		"next": "12",
+		"next": "12.3.4",
 		"next-compose-plugins": "^2.2.1",
 		"next-fonts": "^1.5.1",
 		"next-images": "^1.8.4",
