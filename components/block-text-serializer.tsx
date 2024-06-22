@@ -3,7 +3,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import BlockContent from "@sanity/block-content-to-react";
-import { Styled, jsx } from "theme-ui";
+import { Styled, jsx, Box } from "theme-ui";
 import urlFor from "../lib/sanityImg";
 import { Form, validation } from "@newfrontdoor/form";
 import getVideoId from "get-video-id";
@@ -11,6 +11,7 @@ import Vimeo from "@u-wave/react-vimeo";
 import Youtube from "@u-wave/react-youtube";
 import { StyledPlayer } from "@newfrontdoor/audio-player";
 import Link from "next/link";
+import { submitForm } from "../lib/sanity-fns";
 
 const AudioSerializer = ({ node }) => {
 	return <StyledPlayer audio={node.url} isInvert={false} width="300px" />;
@@ -26,7 +27,6 @@ const VideoSerializer = ({ node }) => {
 		const video = getVideoId(url || null);
 
 		if (video.service === "youtube") {
-			//@ts-expect-error
 			return <Youtube modestBranding annotations={false} video={video.id} height={360} width={640} />;
 		}
 
@@ -65,14 +65,24 @@ ImageSerializer.propTypes = {
 	node: PropTypes.node.isRequired
 };
 
+const Success = (node) => (
+	<Box as="form" id={node.id}>
+		<fieldset>
+			<Styled.p>
+				{node.onSuccess || "Thank you for your submission. We will get back to you as soon as we can."}
+			</Styled.p>
+		</fieldset>
+	</Box>
+);
+
 const FormSerializer = ({ node }) => {
 	return (
 		<Form
 			{...node}
 			validationFn={(values) => validation(values, node)}
-			//@ts-expect-error
 			blockText={(val) => <BlockText blocks={val} />}
-			submitForm={(values) => console.log(values)}
+			submitForm={(values) => submitForm(values, node.id)}
+			success={<Success node={node} />}
 		/>
 	);
 };
@@ -83,7 +93,6 @@ FormSerializer.propTypes = {
 
 const InternalLinkSerializer = ({ mark, children }) => {
 	return (
-		//@ts-expect-error
 		<Link href={mark.slug || ""} passHref>
 			<Styled.a>{children}</Styled.a>
 		</Link>
@@ -91,7 +100,6 @@ const InternalLinkSerializer = ({ mark, children }) => {
 };
 
 const ExternalLinkSerializer = ({ mark, children }) => (
-	//@ts-expect-error
 	<Link href={mark.href} passHref>
 		<Styled.a>{children}</Styled.a>
 	</Link>
