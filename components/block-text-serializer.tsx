@@ -101,10 +101,12 @@ const InternalLinkSerializer = ({ mark, children }) => {
 
 const ExternalLinkSerializer = ({ mark, children }) => (
 	<Link href={mark.href} passHref>
-		<Styled.a>{children}</Styled.a>
+	  <Styled.a target="_blank" rel="noopener noreferrer">
+		{children}
+	  </Styled.a>
 	</Link>
-);
-
+  );
+  
 InternalLinkSerializer.propTypes = {
 	children: PropTypes.array.isRequired,
 	mark: PropTypes.shape({
