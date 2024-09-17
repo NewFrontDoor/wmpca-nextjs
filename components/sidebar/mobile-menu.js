@@ -9,7 +9,6 @@ const Mobile = ({ menuItems }) => {
 	const router = useRouter();
 
 	const onSelectChange = (e) => {
-		console.log(e);
 		const slug = e.target.value;
 		router.push(slug);
 	};
@@ -23,9 +22,7 @@ const Mobile = ({ menuItems }) => {
 			<option value="">--Please choose an option--</option>
 			{menuItems.map((item) => (
 				<React.Fragment key={item.text}>
-					<option value={item.childpages[0].slug.current}>
-						{item.childpages > 0 ? item.text + " »" : item.text}
-					</option>
+					<option value={item.childpages[0].slug.current}>{item.childpages > 0 ? item.text + " »" : item.text}</option>
 					{item.childpages > 0 &&
 						item.childpages.map((child) => {
 							return (
@@ -41,7 +38,7 @@ const Mobile = ({ menuItems }) => {
 };
 
 Mobile.propTypes = {
-	menuItems: PropTypes.array.isRequired,
+	menuItems: PropTypes.array.isRequired
 };
 
 export default Mobile;

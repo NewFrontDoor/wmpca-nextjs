@@ -99,14 +99,6 @@ const InternalLinkSerializer = ({ mark, children }) => {
 	);
 };
 
-const ExternalLinkSerializer = ({ mark, children }) => (
-	<Link href={mark.href} passHref>
-	  <Styled.a target="_blank" rel="noopener noreferrer">
-		{children}
-	  </Styled.a>
-	</Link>
-  );
-  
 InternalLinkSerializer.propTypes = {
 	children: PropTypes.array.isRequired,
 	mark: PropTypes.shape({
@@ -114,10 +106,35 @@ InternalLinkSerializer.propTypes = {
 	}).isRequired
 };
 
+const ExternalLinkSerializer = ({ mark, children }) => (
+	<Link href={mark.href} passHref>
+		<Styled.a target="_blank" rel="noopener noreferrer">
+			{children}
+		</Styled.a>
+	</Link>
+);
+
 ExternalLinkSerializer.propTypes = {
 	children: PropTypes.array.isRequired,
 	mark: PropTypes.shape({
 		href: PropTypes.string
+	}).isRequired
+};
+
+const FileLinkSerializer = ({ mark, children }) => {
+	return (
+		<Link href={mark.url} passHref>
+			<Styled.a target="_blank" rel="noopener noreferrer">
+				{children}
+			</Styled.a>
+		</Link>
+	);
+};
+
+FileLinkSerializer.propTypes = {
+	children: PropTypes.array.isRequired,
+	mark: PropTypes.shape({
+		url: PropTypes.string
 	}).isRequired
 };
 
@@ -166,7 +183,8 @@ const BlockText = ({ blocks }) => {
 				marks: {
 					anchor: AnchorSerializer,
 					internalLink: InternalLinkSerializer,
-					link: ExternalLinkSerializer
+					link: ExternalLinkSerializer,
+					fileLink: FileLinkSerializer
 				}
 			}}
 		/>
