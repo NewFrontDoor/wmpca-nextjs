@@ -1,3 +1,4 @@
+/** @jsxImportSource */
 import PropTypes from 'prop-types';
 import React from 'react';
 import App from 'next/app';
@@ -30,9 +31,16 @@ class MyApp extends App {
   }
 }
 
+
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <ThemeUIProvider theme={theme}>
+      <Component {...pageProps} />
+    </ThemeUIProvider>
+  );
+}
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.any.isRequired
 };
-
-export default MyApp;

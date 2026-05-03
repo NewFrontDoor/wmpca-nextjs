@@ -6,8 +6,8 @@ import Header from '../../components/header/header';
 import {fetchQuery} from '../../lib/sanity';
 import MainImage from '../../components/main-image';
 import Layout from '../../components/layout';
-import BlockText from '../../components/block-text-serializer';
-import Link from '../../components/link';
+import { BlockText } from '../../components/block-text-serializer';
+import { Link } from '../../components/link';
 import {menuQuery, blogPostQuery} from '../../lib/queries';
 
 const Blog = ({mainData, menuData}) => {

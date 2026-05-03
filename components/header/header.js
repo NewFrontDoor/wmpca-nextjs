@@ -1,5 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, jsx } from "theme-ui";
