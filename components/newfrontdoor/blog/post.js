@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import PropTypes from 'prop-types';
 import {Flex, jsx} from 'theme-ui';
 import readingTime from 'reading-time';

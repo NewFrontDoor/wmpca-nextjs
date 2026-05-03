@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "theme-ui";
-import { Blog as BlogBody } from "@newfrontdoor/blog";
+import { Blog as BlogBody } from "../../components/newfrontdoor/blog";
 import Header from "../../components/header/header";
 import { fetchQuery } from "../../lib/sanity";
 import MainImage from "../../components/main-image";

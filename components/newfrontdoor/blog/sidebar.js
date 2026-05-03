@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import PropTypes from 'prop-types';
 import {jsx, Styled} from 'theme-ui';
 import format from 'date-fns/format';
