@@ -1,5 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from "react";
 import PropTypes from "prop-types";
 import { Carousel } from "../components/newfrontdoor/carousel";
@@ -14,7 +12,7 @@ import { mainQuery, menuQuery } from "../lib/queries";
 import urlFor from "../lib/sanityImg";
 import { Grid, jsx } from "theme-ui";
 
-const Home = ({ mainData, menuData }) => {
+export default function Home ({ mainData, menuData }) {
 	const { heading, images, welcome } = mainData;
 	return (
 		<Layout menuItems={menuData.menuitems} footer={menuData.footer}>
@@ -42,7 +40,6 @@ Home.propTypes = {
 	menuData: PropTypes.object.isRequired
 };
 
-export default Home;
 
 Home.getInitialProps = async () => {
 	const results = await fetchQuery(

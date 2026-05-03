@@ -13,7 +13,6 @@
 	"license": "ISC",
 	"dependencies": {
 		"@aws-sdk/client-ses": "^3.1041.0",
-		"@babel/eslint-parser": "^7.28.6",
 		"@emotion/core": "^10.0.28",
 		"@emotion/is-prop-valid": "^0.8.8",
 		"@emotion/react": "^11.14.0",
@@ -24,7 +23,6 @@
 		"@sanity/client": "^1.149.2",
 		"@sanity/image-url": "^0.140.17",
 		"@theme-ui/style-guide": "^0.17.4",
-		"@typescript-eslint/eslint-plugin": "^8.59.1",
 		"@u-wave/react-vimeo": "^0.9.12",
 		"@u-wave/react-youtube": "^0.7.4",
 		"babel-plugin-inline-react-svg": "^1.1.1",
@@ -48,10 +46,12 @@
 		"react-icons": "^3.9.0",
 		"react-range": "^1.10.0",
 		"reading-time": "^1.5.0",
-		"theme-ui": "^0.17.4",
-		"typescript": "^6.0.3"
+		"theme-ui": "^0.17.4"
 	},
 	"devDependencies": {
+		"@babel/eslint-parser": "^7.28.6",
+		"@babel/preset-react": "^7.28.5",
+		"@eslint/js": "^10.0.1",
 		"eslint": "10.3.0",
 		"eslint-config-next": "11.1.2",
 		"eslint-config-xo-react": "0.23.0",
@@ -60,6 +60,8 @@
 		"eslint-plugin-react-hooks": "^7.1.1",
 		"prettier": "^1.19.1",
 		"prop-types": "^15.7.2",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.59.1",
 		"xo": "^0.27.2"
 	},
 	"xo": {

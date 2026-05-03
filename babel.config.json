@@ -1,11 +1,22 @@
 {
-	"presets": ["next/babel"],
+	"presets": [
+		"next/babel", 
+		[
+			"@babel/preset-react",
+			{
+				"importSource": "theme-ui",
+				"runtime": "automatic",
+				"throwIfNamespace": false // or '@theme-ui/core'
+			},
+		]
+	],
 	"plugins": [
 		[
 			"inline-react-svg",
 			{
 				"svgo": false
-			}
+			},
+			
 		]
 	]
 }

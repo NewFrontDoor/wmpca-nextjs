@@ -19,8 +19,6 @@ const Title = styled.div`
 
 export default function SectionTitle({text}) {
   return (
-    <Title>
-      <span>{text}</span>
-    </Title>
+    <Title>{text}</Title>
   );
 }

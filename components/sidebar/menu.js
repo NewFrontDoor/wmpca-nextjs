@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from "react";
-import { Styled, Text, jsx } from "theme-ui";
+import { Text, jsx } from "theme-ui";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import Mobile from "./mobile-menu";

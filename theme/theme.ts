@@ -4,7 +4,6 @@ import type { Theme } from 'theme-ui';
 
 export const theme: Theme = {
   useCustomProperties: true,
-  useBodyStyles: true,
   breakpoints: ['40em', '56em', '64em'],
   text: {
     pageheading: {
@@ -51,7 +50,8 @@ export const theme: Theme = {
     link: 'accent',
     banner: '#F1F1F1',
     footerBg: 'text',
-    none: 'none'
+    none: 'none',
+    Link: 'accent'
   },
   links: {
     footer: {
