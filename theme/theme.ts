@@ -1,7 +1,8 @@
 // Theme.js
-import menuUl from './menu';
+import { menuUl }  from './menu';
+import type { Theme } from 'theme-ui';
 
-export default {
+export const theme: Theme = {
   useCustomProperties: true,
   useBodyStyles: true,
   breakpoints: ['40em', '56em', '64em'],

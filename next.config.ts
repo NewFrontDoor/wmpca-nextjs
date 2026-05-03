@@ -3,6 +3,11 @@ const withPlugins = require("next-compose-plugins");
 const withImages = require("next-images");
 const withFonts = require("next-fonts");
 
+import { withPlugins } from "next-compose-plugins";
+import { withImages } from "next-images";
+import { withFonts } from "next-fonts";
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
 	env: {
 		GOOGLE_MAPS_API: process.env.GOOGLE_MAPS_API,

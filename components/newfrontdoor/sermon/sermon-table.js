@@ -16,30 +16,30 @@ const SermonTable = ({
     .map((item) => item.key)
     .filter((word) => word !== titleKey);
   return (
-    <Styled.table sx={passedSx}>
+    <table sx={passedSx}>
       <thead>
-        <Styled.tr>
+        <tr>
           {headers.map((column) => (
-            <Styled.th
+            <th
               key={column.key}
               sx={{
                 display: [column.hideable ? 'none' : 'table-cell', 'table-cell']
               }}
             >
               {column.heading}
-            </Styled.th>
+            </th>
           ))}
           <th /> {/* This is for the download column */}
-        </Styled.tr>
+        </tr>
       </thead>
       <tbody>
         {sermons.map((sermon) => (
-          <Styled.tr key={sermon.nid}>
-            <Styled.td>
+          <tr key={sermon.nid}>
+            <td>
               {renderLink(sermonDirectory, sermon.slug, sermon[titleKey])}
-            </Styled.td>
+            </td>
             {desiredColumns.map((item) => (
-              <Styled.td
+              <td
                 key={sermon.nid + item}
                 sx={{
                   display: [item.hideable ? 'none' : 'table-cell', 'table-cell']
@@ -47,21 +47,21 @@ const SermonTable = ({
               >
                 {Object.prototype.hasOwnProperty.call(sermon, item) &&
                   sermon[item]}
-              </Styled.td>
+              </td>
             ))}
-            <Styled.td>
-              <Styled.a
+            <td>
+              <a
                 href={sermon.url}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <FaDownload />
-              </Styled.a>
-            </Styled.td>
-          </Styled.tr>
+              </a>
+            </td>
+          </tr>
         ))}
       </tbody>
-    </Styled.table>
+    </table>
   );
 };
 

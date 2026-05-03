@@ -15,11 +15,11 @@ const LatestSermon = ({
 }) => {
   return (
     <section>
-      <Styled.h2>Latest Sermon</Styled.h2>
+      <h2>Latest Sermon</h2>
       {loading ? (
         <PulseLoader loading={loading} size={10} />
       ) : error && !loading ? (
-        <Styled.p>Unable to find latest sermon</Styled.p>
+        <p>Unable to find latest sermon</p>
       ) : (
         <section>
           {(sermonImg || seriesImg) && (

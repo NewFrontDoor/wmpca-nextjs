@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import App from 'next/app';
-import {ThemeProvider, Styled} from 'theme-ui';
-import theme from '../theme/theme';
-require('typeface-open-sans');
+import { ThemeUIProvider } from 'theme-ui';
+import { theme } from '../theme/theme';
+import openSans from '@fontsource/open-sans';
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
@@ -21,11 +21,11 @@ class MyApp extends App {
   render() {
     const {Component, pageProps} = this.props;
     return (
-      <ThemeProvider theme={theme}>
-        <Styled.root>
+      <ThemeUIProvider theme={theme}>
+        <root>
           <Component {...pageProps} />
-        </Styled.root>
-      </ThemeProvider>
+        </root>
+      </ThemeUIProvider>
     );
   }
 }

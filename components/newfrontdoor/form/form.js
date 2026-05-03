@@ -1,5 +1,3 @@
-/** @jsx jsx */
-/** @jsxFrag React.Fragment */
 /** @jsxImportSource theme-ui */
 
 import React from 'react';
@@ -58,9 +56,9 @@ const NestedForm = ({
       <fieldset sx={{display: 'contents'}}>
         {childLabel && (
           <legend>
-            <Styled.h4>
+            <h4>
               {childLabel} {index + 1}
-            </Styled.h4>
+            </h4>
           </legend>
         )}
         {childFields?.map((field) => (
@@ -113,11 +111,11 @@ const FormField = ({field, form, blockText, name = ''}) => {
     case 'field-array':
       return (
         <Box sx={{gridColumn: '1/3'}}>
-          {field.label && <Styled.h2>{field.label}</Styled.h2>}
+          {field.label && <h2>{field.label}</h2>}
           {field.description && blockText ? (
             blockText(field.description)
           ) : (
-            <Styled.p>{field.description}</Styled.p>
+            <p>{field.description}</p>
           )}
           <Grid gap={20} columns={['1fr 1fr']}>
             <div sx={{display: 'flex', justifyContent: 'space-evenly'}}>
@@ -293,7 +291,7 @@ const FormComponent = ({
   success
 }) => {
   const defaultTextHandler = (content) => {
-    return <Styled.p>{content}</Styled.p>;
+    return <p>{content}</p>;
   };
 
   const block = blockText ?? defaultTextHandler;
@@ -310,17 +308,17 @@ const FormComponent = ({
           ) : (
             <Box as="form" id={id}>
               <fieldset>
-                <Styled.p>
+                <p>
                   Thankyou for your submission. We will get back to you as soon
                   as we can.
-                </Styled.p>
+                </p>
               </fieldset>
             </Box>
           )
         ) : (
           <Box as="form" id={id} onSubmit={handleSubmit}>
             <fieldset>
-              {title && <Styled.h2>{title}</Styled.h2>}
+              {title && <h2>{title}</h2>}
               {description && block(description)}
               <Grid gap={20} columns={['1fr 1fr']}>
                 {fields.map((field) => (

@@ -8,7 +8,7 @@ import RenderSeriesComponent from './render-series-content';
 const CurrentSeries = ({loading, seriesData, style}) => {
   return (
     <section sx={style}>
-      <Styled.h2>Current Series</Styled.h2>
+      <h2>Current Series</h2>
       <PulseLoader loading={loading} size={20} />
       {loading || <RenderSeriesComponent {...seriesData} />}
     </section>

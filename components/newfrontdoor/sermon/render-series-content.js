@@ -7,9 +7,9 @@ const RenderSeriesComponent = ({id, title, image, link}) => {
   return (
     <div key={id}>
       <img src={image} alt="Sermon Art" />
-      <Styled.p>
-        <Styled.a dangerouslySetInnerHTML={{__html: title}} href={link} />
-      </Styled.p>
+      <p>
+        <a dangerouslySetInnerHTML={{__html: title}} href={link} />
+      </p>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-/** @jsx jsx */
 import {jsx} from 'theme-ui';
 import {FC, HTMLProps, useRef} from 'react';
 import PropTypes from 'prop-types';

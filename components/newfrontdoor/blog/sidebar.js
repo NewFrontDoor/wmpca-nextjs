@@ -28,7 +28,7 @@ const Sidebar = ({
         ...overrides
       }}
     >
-      <Styled.h2>{title}</Styled.h2>
+      <h2>{title}</h2>
       <div>
         {author && (
           <Link link={author._id} data={author}>

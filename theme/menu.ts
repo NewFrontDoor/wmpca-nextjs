@@ -1,4 +1,6 @@
-export default {
+import type { Theme } from 'theme-ui';
+
+export const menuUl: Theme['styles']['ul'] = {
   width: '160px',
   margin: '0',
   padding: '0',

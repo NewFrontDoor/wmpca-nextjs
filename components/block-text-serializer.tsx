@@ -1,15 +1,12 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import React from "react";
 import PropTypes from "prop-types";
 import BlockContent from "@sanity/block-content-to-react";
-import { Styled, jsx, Box } from "theme-ui";
+import { jsx, Box } from "theme-ui";
 import urlFor from "../lib/sanityImg";
-import { Form, validation } from "@newfrontdoor/form";
+import { Form, validation } from "./newfrontdoor/form";
 import getVideoId from "get-video-id";
 import Vimeo from "@u-wave/react-vimeo";
 import Youtube from "@u-wave/react-youtube";
-import { StyledPlayer } from "@newfrontdoor/audio-player";
+import StyledPlayer from "./newfrontdoor/audio-player/styled-player";
 import Link from "next/link";
 import { submitForm } from "../lib/sanity-fns";
 
@@ -41,7 +38,7 @@ VideoSerializer.propTypes = {
 };
 
 const CustomStyleSerializer = ({ children }) => {
-	return <Styled.p>{children}</Styled.p>;
+	return <p>{children}</p>;
 };
 
 CustomStyleSerializer.propTypes = {
@@ -68,9 +65,9 @@ ImageSerializer.propTypes = {
 const Success = (node) => (
 	<Box as="form" id={node.id}>
 		<fieldset>
-			<Styled.p>
+			<p>
 				{node.onSuccess || "Thank you for your submission. We will get back to you as soon as we can."}
-			</Styled.p>
+			</p>
 		</fieldset>
 	</Box>
 );
@@ -94,7 +91,7 @@ FormSerializer.propTypes = {
 const InternalLinkSerializer = ({ mark, children }) => {
 	return (
 		<Link href={mark.slug || ""} passHref>
-			<Styled.a>{children}</Styled.a>
+			{children}
 		</Link>
 	);
 };
@@ -107,10 +104,8 @@ InternalLinkSerializer.propTypes = {
 };
 
 const ExternalLinkSerializer = ({ mark, children }) => (
-	<Link href={mark.href} passHref>
-		<Styled.a target="_blank" rel="noopener noreferrer">
-			{children}
-		</Styled.a>
+	<Link href={mark.href} target="_blank" rel="noopener noreferrer">
+		{children}
 	</Link>
 );
 
@@ -123,10 +118,8 @@ ExternalLinkSerializer.propTypes = {
 
 const FileLinkSerializer = ({ mark, children }) => {
 	return (
-		<Link href={mark.url} passHref>
-			<Styled.a target="_blank" rel="noopener noreferrer">
-				{children}
-			</Styled.a>
+		<Link href={mark.url} passHref target="_blank" rel="noopener noreferrer">
+			{children}
 		</Link>
 	);
 };
@@ -142,12 +135,12 @@ const BlockRenderer = (props) => {
 	const style = props.node.style || "normal";
 
 	const elements = {
-		h1: <Styled.h1>{props.children}</Styled.h1>,
-		h2: <Styled.h2>{props.children}</Styled.h2>,
-		h3: <Styled.h3>{props.children}</Styled.h3>,
-		h4: <Styled.h4>{props.children}</Styled.h4>,
-		h5: <Styled.h5>{props.children}</Styled.h5>,
-		h6: <Styled.h6>{props.children}</Styled.h6>
+		h1: <h1>{props.children}</h1>,
+		h2: <h2>{props.children}</h2>,
+		h3: <h3>{props.children}</h3>,
+		h4: <h4>{props.children}</h4>,
+		h5: <h5>{props.children}</h5>,
+		h6: <h6>{props.children}</h6>
 	};
 
 	if (/^h\d/.test(style)) {

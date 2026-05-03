@@ -1,15 +1,15 @@
 /** @jsxRuntime classic */
-/** @jsx jsx */
+
 import React from "react";
 import PropTypes from "prop-types";
-import { Flex, Styled, jsx } from "theme-ui";
+import { Flex, jsx } from "theme-ui";
 import { NavButton as Button } from "./sidebar/nav-button";
 import Link from "./link";
 
 const ActionBlock = ({ heading, content, action, url }) => {
 	return (
 		<Flex sx={{ flexDirection: "column" }}>
-			<Styled.h4>{heading}</Styled.h4>
+			<h4>{heading}</h4>
 			<p>
 				{Array.isArray(content)
 					? content.map((line) => (

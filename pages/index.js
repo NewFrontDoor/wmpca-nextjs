@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import React from "react";
 import PropTypes from "prop-types";
-import Carousel from "@newfrontdoor/carousel";
+import { Carousel } from "../components/newfrontdoor/carousel";
 import Contact from "../templates/contact";
 import Panels from "../components/panels";
 import Portfolio from "../components/portfolio";

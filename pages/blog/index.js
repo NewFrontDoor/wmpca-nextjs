@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Styled } from "theme-ui";
+import { Grid } from "theme-ui";
 import { Blog as BlogBody } from "@newfrontdoor/blog";
 import Header from "../../components/header/header";
 import { fetchQuery } from "../../lib/sanity";
@@ -24,7 +24,7 @@ const Link = ({ link, data, children }) => {
 			href={`/blog?search=${link}`}
 			as={`/blog?search=${data?.slug?.current || link}`}
 		>
-			<Styled.a>{children}</Styled.a>
+			<a>{children}</a>
 		</BasicLink>
 	);
 };

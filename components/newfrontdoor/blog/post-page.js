@@ -1,6 +1,8 @@
 /** @jsx jsx */
+/** @jsxImportSource theme-ui */
+
 import PropTypes from 'prop-types';
-import {Styled, Flex, jsx} from 'theme-ui';
+import {Flex, jsx} from 'theme-ui';
 import format from 'date-fns/format';
 
 const PostPage = ({post, dateFormat, link, blockText}) => {
@@ -16,7 +18,7 @@ const PostPage = ({post, dateFormat, link, blockText}) => {
         minHeight: [null, '600px']
       }}
     >
-      <Styled.h2>{title}</Styled.h2>
+      <h2>{title}</h2>
       <small>by {author}</small>
       <small>Posted on {format(new Date(_createdAt), dateFormat)}</small>
       <small sx={{display: ['none', 'block']}}>

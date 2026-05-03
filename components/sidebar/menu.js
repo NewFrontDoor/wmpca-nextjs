@@ -13,10 +13,8 @@ const Menu = ({ menuItems }) => {
 				{menuItems.map((item) => (
 					<li key={item.childpages[0]?.pathname + "root"}>
 						<Link href={item.childpages[0].slug.current} passHref>
-							<Styled.a>
-								{item.text}
-								{item.children && " »"}
-							</Styled.a>
+							{item.text}
+							{item.children && " »"}
 						</Link>
 						{item.childpages > 0 && (
 							<ul>
@@ -24,7 +22,7 @@ const Menu = ({ menuItems }) => {
 									return (
 										<li key={child.slug.current + "child"}>
 											<Link href={child.slug.current} passHref>
-												<Styled.a>{child.text}</Styled.a>
+												{child.text}
 											</Link>
 										</li>
 									);
