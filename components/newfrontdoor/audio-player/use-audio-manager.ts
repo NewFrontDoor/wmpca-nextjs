@@ -241,6 +241,7 @@ export const AudioStateContext = createContext<PlayerState>({
   changingVolume: false,
   timeAndDuration: '0:00'
 });
+
 export const AudioDispatchContext = createContext<Dispatch<Action>>(
   () => undefined
 );
@@ -307,7 +308,7 @@ export function useAudioPlayer(): UseAudioPlayer {
   return {playerState, playerProps, dispatch};
 }
 
-export default function useAudioManager(
+export function useAudioManager(
   isPlayOnLoad?: boolean,
   initialSrc?: string
 ): UsePlayerState {

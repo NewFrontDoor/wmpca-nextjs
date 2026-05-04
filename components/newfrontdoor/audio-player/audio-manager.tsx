@@ -1,9 +1,9 @@
-/** @jsx jsx */
 import {jsx, Button, ButtonProps} from 'theme-ui';
 import PropTypes from 'prop-types';
 import {FC, HTMLProps, ReactNode} from 'react';
 import {MdPlayArrow as Play, MdPause as Pause} from 'react-icons/md';
-import useAudioManager, {
+import {
+  useAudioManager,
   useAudioPlayer,
   useAudioStateContext,
   useAudioDispatchContext,
