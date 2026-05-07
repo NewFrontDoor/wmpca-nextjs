@@ -21,7 +21,7 @@ const Link = ({ link, data, children }) => {
 	return (
 		<BasicLink
 			href={`/blog?search=${link}`}
-			sx={{ variant: "links.footer" }}
+			sx={{ variant: "styles.a" }}
 		>
 			{children}
 		</BasicLink>
