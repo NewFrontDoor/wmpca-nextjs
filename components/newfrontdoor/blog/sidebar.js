@@ -6,11 +6,11 @@ const Sidebar = ({
   title,
   author,
   _createdAt,
-  dateFormat,
+  overrides = {},
+  dateFormat = 'EEEE, MMMM do yyyy',
   readingLength,
   categories,
   Link,
-  overrides
 }) => {
   return (
     <aside
@@ -27,7 +27,7 @@ const Sidebar = ({
         ...overrides
       }}
     >
-      <h2>{title}</h2>
+      <h2 sx={{ variant: "styles.h2" }}>{title}</h2>
       <div>
         {author && (
           <Link link={author._id} data={author}>
@@ -66,11 +66,6 @@ Sidebar.propTypes = {
   Link: PropTypes.func.isRequired,
   overrides: PropTypes.object,
   readingLength: PropTypes.object
-};
-
-Sidebar.defaultProps = {
-  overrides: {},
-  dateFormat: 'EEEE, MMMM do yyyy'
 };
 
 export default Sidebar;

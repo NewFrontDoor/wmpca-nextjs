@@ -20,18 +20,16 @@ import { withEmotionCache } from "@emotion/core";
 const Link = ({ link, data, children }) => {
 	return (
 		<BasicLink
-			passHref
 			href={`/blog?search=${link}`}
-			as={`/blog?search=${data?.slug?.current || link}`}
+			sx={{ variant: "links.footer" }}
 		>
-			<a>{children}</a>
+			{children}
 		</BasicLink>
 	);
 };
 
 const Blog = ({ mainData, menuData, blogPosts }) => {
 	const { content, title, mainImage } = mainData;
-
 	return (
 		<Layout menuItems={menuData.menuitems} footer={menuData.footer}>
 			<Grid gap={20}>
@@ -49,6 +47,9 @@ const Blog = ({ mainData, menuData, blogPosts }) => {
 						fontFamily: "body",
 						lineHeight: 1,
 						position: [null, null, "sticky"],
+						'li': {
+							lineHeight: "1.5rem"
+						}
 					}}
 					Link={Link}
 					blockText={(content) => <BlockText blocks={content} />}

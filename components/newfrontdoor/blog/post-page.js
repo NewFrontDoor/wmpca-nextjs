@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Flex, jsx} from 'theme-ui';
 import format from 'date-fns/format';
 
-const PostPage = ({post, dateFormat, link, blockText}) => {
+const PostPage = ({post, dateFormat = 'dddd, MMMM do yyyy', link, blockText}) => {
   const {title, author, _createdAt, categories, date, body} = post;
   return (
     <Flex
@@ -53,10 +53,6 @@ PostPage.propTypes = {
     body: PropTypes.any
   }).isRequired,
   blockText: PropTypes.func.isRequired
-};
-
-PostPage.defaultProps = {
-  dateFormat: 'dddd, MMMM do yyyy'
 };
 
 export default PostPage;

@@ -5,7 +5,7 @@ import {PulseLoader} from 'react-spinners';
 import {Styled, jsx} from 'theme-ui';
 import RenderSeriesComponent from './render-series-content';
 
-const RecentSeries = ({loading, seriesData, style}) => {
+const RecentSeries = ({loading, seriesData, style = {}}) => {
   return (
     <section sx={style}>
       <h2>Recent Series</h2>
@@ -22,10 +22,6 @@ RecentSeries.propTypes = {
   loading: PropTypes.bool.isRequired,
   seriesData: PropTypes.array.isRequired,
   style: PropTypes.object
-};
-
-RecentSeries.defaultProps = {
-  style: {}
 };
 
 export default RecentSeries;

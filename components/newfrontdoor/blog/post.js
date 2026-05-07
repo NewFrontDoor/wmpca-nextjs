@@ -3,8 +3,13 @@ import {Flex, jsx} from 'theme-ui';
 import readingTime from 'reading-time';
 import DefaultSidebar from './sidebar';
 
-const Post = (props) => {
-  const {body, blockText, bodyTransform, Sidebar} = props;
+const Post = ({
+  body,
+  blockText,
+  bodyTransform = (props) => props,
+  Sidebar = DefaultSidebar,
+  ...rest
+}) => {
   const readingLength = readingTime(bodyTransform(body));
 
   return body ? (
@@ -14,23 +19,27 @@ const Post = (props) => {
         margin: 'auto',
         width: '100vw',
         maxWidth: '920px',
-        paddingTop: '40px',
+        paddingBottom: '40px',
         minHeight: [null, '600px']
       }}
     >
-      <Sidebar {...props} readingLength={readingLength} />
+
+      <Sidebar {...rest} readingLength={readingLength} />
       <div
         sx={{
           flex: '1 0 auto',
           width: 'auto',
           maxWidth: ['24em', '32em'],
-          paddingTop: [null, '23.5px']
+          paddingTop: [null, '23.5px'],
+          'img': {
+            width: '100%'
+          },
         }}
       >
         {blockText(body)}
       </div>
     </Flex>
-  ) : null;
+  ) : <div>empty</div>;
 };
 
 Post.propTypes = {
@@ -38,11 +47,6 @@ Post.propTypes = {
   blockText: PropTypes.func.isRequired,
   Sidebar: PropTypes.elementType,
   bodyTransform: PropTypes.func
-};
-
-Post.defaultProps = {
-  bodyTransform: (props) => props,
-  Sidebar: DefaultSidebar
 };
 
 export default Post;

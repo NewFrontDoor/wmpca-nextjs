@@ -20,7 +20,7 @@ type CalendarProps = {
 const Calendar: FC<CalendarProps> = ({
   client,
   initialView,
-  isViewFixed,
+  isViewFixed = false,
   handleNav
 }) => {
   const [
@@ -98,10 +98,6 @@ Calendar.propTypes = {
   client: PropTypes.shape({fetchEvents: PropTypes.func.isRequired}).isRequired,
   isViewFixed: PropTypes.bool,
   handleNav: PropTypes.func
-};
-
-Calendar.defaultProps = {
-  isViewFixed: false
 };
 
 export default Calendar;

@@ -19,7 +19,7 @@ const CalendarControls: FC<CalendarControlsProps> = ({
   location,
   calendarView,
   input,
-  isViewFixed,
+  isViewFixed = false,
   startOfMonth
 }) => {
   const dispatch = useCalendarDispatch();
@@ -124,10 +124,6 @@ CalendarControls.propTypes = {
   input: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
   isViewFixed: PropTypes.bool,
   startOfMonth: PropTypes.instanceOf(Date).isRequired
-};
-
-CalendarControls.defaultProps = {
-  isViewFixed: false
 };
 
 export default CalendarControls;

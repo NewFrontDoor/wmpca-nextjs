@@ -60,13 +60,13 @@ export type StyledPlayerProps = {
 };
 
 const StyledPlayer: FC<StyledPlayerProps> = ({
-  highlight,
-  base,
-  hasBorder,
-  background,
-  isInvert,
-  hasPlaybackspeed,
-  width
+  highlight = '#548BF4',
+  base = '#ddd',
+  hasBorder = true,
+  background = 'unset',
+  isInvert = "false",
+  hasPlaybackspeed = true,
+  width = "280px"
 }) => {
   const volumeBar = useRef<Range>(null);
   const {playerState, playerProps, dispatch} = useAudioPlayer();
@@ -238,16 +238,6 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
       )}
     </div>
   );
-};
-
-StyledPlayer.defaultProps = {
-  highlight: '#548BF4',
-  base: '#ddd',
-  hasBorder: true,
-  background: 'unset',
-  isInvert: false,
-  hasPlaybackspeed: true,
-  width: '280px'
 };
 
 StyledPlayer.propTypes = {

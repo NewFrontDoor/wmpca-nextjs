@@ -5,12 +5,12 @@ import PropTypes from 'prop-types';
 import {FaDownload} from 'react-icons/fa';
 
 const SermonTable = ({
-  sermons,
-  headers,
-  titleKey,
-  sermonDirectory,
-  renderLink,
-  passedSx
+  sermons = [],
+  headers = [],
+  titleKey = 'title',
+  sermonDirectory = 'sermons',
+  renderLink = () => {},
+  passedSx = {}
 }) => {
   const desiredColumns = headers
     .map((item) => item.key)
@@ -63,15 +63,6 @@ const SermonTable = ({
       </tbody>
     </table>
   );
-};
-
-SermonTable.defaultProps = {
-  sermons: [],
-  headers: [],
-  titleKey: 'title',
-  sermonDirectory: 'sermons',
-  renderLink: () => {},
-  passedSx: {}
 };
 
 SermonTable.propTypes = {

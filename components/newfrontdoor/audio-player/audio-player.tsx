@@ -11,16 +11,12 @@ type AudioPlayerProps = {
   isPlayOnLoad?: boolean;
 } & StyledPlayerProps;
 
-const AudioPlayer: FC<AudioPlayerProps> = ({src, isPlayOnLoad, ...props}) => {
+const AudioPlayer: FC<AudioPlayerProps> = ({src, isPlayOnLoad = false, ...props}) => {
   return (
     <AudioManager isPlayOnLoad={isPlayOnLoad} initialSrc={src}>
       <StyledPlayer {...props} />
     </AudioManager>
   );
-};
-
-AudioPlayer.defaultProps = {
-  isPlayOnLoad: false
 };
 
 AudioPlayer.propTypes = {

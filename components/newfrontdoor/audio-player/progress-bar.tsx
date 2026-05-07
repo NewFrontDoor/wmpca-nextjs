@@ -14,7 +14,7 @@ type ProgressBarProps = {
 };
 
 const ProgressBar = forwardRef<Range, ProgressBarProps>(
-  ({value, max, onChange, step, isInteracting, color, isInvert}, rangeRef) => {
+  ({value, max, onChange, step = 1, isInteracting, color, isInvert = false}, rangeRef) => {
     return (
       <Range
         ref={rangeRef}
@@ -92,11 +92,6 @@ const ProgressBar = forwardRef<Range, ProgressBarProps>(
 );
 
 export default ProgressBar;
-
-ProgressBar.defaultProps = {
-  step: 1,
-  isInvert: false
-};
 
 ProgressBar.propTypes = {
   value: PropTypes.number.isRequired,

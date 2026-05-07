@@ -10,7 +10,7 @@ const LatestSermon = ({
   sermonUrl,
   sermonImg,
   seriesImg,
-  loading,
+  loading = false,
   error
 }) => {
   return (
@@ -48,10 +48,6 @@ LatestSermon.propTypes = {
   seriesImg: PropTypes.string,
   error: PropTypes.string,
   loading: PropTypes.bool
-};
-
-LatestSermon.defaultProps = {
-  loading: false
 };
 
 export default LatestSermon;
