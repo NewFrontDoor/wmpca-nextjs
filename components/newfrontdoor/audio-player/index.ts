@@ -1,3 +1,3 @@
-import { StyledPlayer } from "./styled-player";
+import StyledPlayer from "./styled-player";
 
 export { StyledPlayer };
