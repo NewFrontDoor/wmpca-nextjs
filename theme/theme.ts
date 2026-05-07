@@ -57,16 +57,16 @@ export const theme: Theme = {
     footer: {
       fontFamily: 'body',
       fontWeight: 'body',
-      color: 'accent',
+      color: 'background',
       textDecoration: 'none',
       '&:visited': {
-        color: 'accent'
+        color: 'background'
       },
       '&:hover': {
-        color: 'text'
+        color: 'accent'
       },
       '&:active': {
-        color: 'text'
+        color: 'accent'
       }
     }
   },
@@ -154,7 +154,7 @@ export const theme: Theme = {
     li: {
       fontFamily: 'body',
       fontWeight: 'body',
-      lineHeight: 'body',
+      lineHeight: 'body'
     }
   },
   buttons: {
