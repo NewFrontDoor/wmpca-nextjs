@@ -7,7 +7,7 @@ import Link from "./link";
 const ActionBlock = ({ heading, content, action, url }) => {
 	return (
 		<Flex sx={{ flexDirection: "column" }}>
-			<h4>{heading}</h4>
+			<h4 sx={{ variant: "styles.h4" }}>{heading}</h4>
 			<p>
 				{Array.isArray(content)
 					? content.map((line) => (
