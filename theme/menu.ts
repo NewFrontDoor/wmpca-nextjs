@@ -15,10 +15,11 @@ export const menuUl: Theme['styles']['ul'] = {
       fontSize: '18px',
       textTransform: 'uppercase',
       fontWeight: '300',
-      display: 'block'
+      display: 'block',
+      textDecoration: 'none',
     },
     'a:hover': {
-      background: 'light',
+      // background: 'light',
       color: 'accent'
     },
     '&:hover': {
