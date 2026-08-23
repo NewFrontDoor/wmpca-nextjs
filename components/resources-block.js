@@ -9,7 +9,7 @@ const ResourcesBlock = () => {
 		<div sx={{ minHeight: "300px" }}>
 			<ul sx={{ listStyle: "none" }}>
 				<li>
-					<Link link="/connect">Connect & Network</Link>
+					<Link href="/connect">Connect & Network</Link>
 				</li>
 			</ul>
 		</div>

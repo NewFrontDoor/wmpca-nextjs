@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Flex, jsx} from 'theme-ui';
 import format from 'date-fns/format';
 
-const PostPage = ({post, dateFormat = 'dddd, MMMM do yyyy', link, blockText}) => {
+const PostPage = ({post, dateFormat = 'EEEE, MMMM do yyyy', link, blockText}) => {
   const {title, author, _createdAt, categories, date, body} = post;
   return (
     <Flex
@@ -18,15 +18,17 @@ const PostPage = ({post, dateFormat = 'dddd, MMMM do yyyy', link, blockText}) =>
       }}
     >
       <h2>{title}</h2>
-      <small>by {author}</small>
+      {author?.name && <small>by {author.name}</small>}
       <small>Posted on {format(new Date(_createdAt), dateFormat)}</small>
-      <small sx={{display: ['none', 'block']}}>
-        <ul>
-          {categories.map((category) => (
-            <li key={category.title + date}>{link(category)}</li>
-          ))}
-        </ul>
-      </small>
+      {categories?.length > 0 && (
+        <small sx={{display: ['none', 'block']}}>
+          <ul>
+            {categories.map((category) => (
+              <li key={category.title + date}>{link(category)}</li>
+            ))}
+          </ul>
+        </small>
+      )}
       <div
         sx={{
           flex: '1 0 auto',
@@ -46,7 +48,7 @@ PostPage.propTypes = {
   link: PropTypes.func.isRequired,
   post: PropTypes.shape({
     title: PropTypes.string,
-    author: PropTypes.string,
+    author: PropTypes.shape({name: PropTypes.string}),
     _createdAt: PropTypes.string,
     categories: PropTypes.array,
     date: PropTypes.string,

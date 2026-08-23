@@ -23,7 +23,7 @@ const ActionBlock = ({ heading, content, action, url }) => {
 					{action.text}
 				</Button>
 			)}
-			{url && <Link link={url.href}>{url.text}</Link>}
+			{url && <Link href={url.href}>{url.text}</Link>}
 		</Flex>
 	);
 };

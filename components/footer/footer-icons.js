@@ -62,7 +62,7 @@ const FooterIcons = ({ social }) => {
 		>
 			{social.map((icon) => (
 				<li key={icon.url}>
-					<Link link={icon.url}>{getIcon[icon.type]}</Link>
+					<Link href={icon.url}>{getIcon[icon.type]}</Link>
 				</li>
 			))}
 		</ul>
