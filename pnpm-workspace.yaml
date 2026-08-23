@@ -1,3 +1,9 @@
+# Single-package repo, but pnpm 9 (used by Vercel) requires `packages` to be
+# present whenever this file exists — without it install fails with
+# "packages field missing or empty".
+packages:
+  - .
+
 allowBuilds:
   fsevents: false
   sharp: true
