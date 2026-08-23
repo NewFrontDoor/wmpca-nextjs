@@ -11,6 +11,9 @@
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
+	"engines": {
+		"node": "22.x"
+	},
 	"dependencies": {
 		"@aws-sdk/client-ses": "^3.1041.0",
 		"@emotion/core": "^10.0.28",
