@@ -6,7 +6,7 @@ import { Form, validation } from "./newfrontdoor/form";
 import getVideoId from "get-video-id";
 import Vimeo from "@u-wave/react-vimeo";
 import Youtube from "@u-wave/react-youtube";
-import { StyledPlayer } from "./newfrontdoor/audio-player";
+import { AudioPlayer } from "./newfrontdoor/audio-player";
 import Link from "next/link";
 import { submitForm } from "../lib/sanity-fns";
 
@@ -15,7 +15,7 @@ type AudioSerializer = {
 };
 
 const AudioSerializer = ({ node }: AudioSerializer) => {
-	return <StyledPlayer audio={node.url} isInvert={false} width="300px" />;
+	return <AudioPlayer src={node.url} isInvert={false} width="300px" />;
 };
 
 

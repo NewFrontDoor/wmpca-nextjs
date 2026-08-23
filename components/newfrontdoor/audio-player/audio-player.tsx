@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import {jsx} from 'theme-ui';
 import {FC} from 'react';
 import PropTypes from 'prop-types';
 

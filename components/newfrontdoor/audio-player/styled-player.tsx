@@ -64,7 +64,7 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
   base = '#ddd',
   hasBorder = true,
   background = 'unset',
-  isInvert = "false",
+  isInvert = false,
   hasPlaybackspeed = true,
   width = "280px"
 }) => {
@@ -160,6 +160,7 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
           onKeyDown={() => dispatch({type: 'start-seeking'})}
         >
           <ProgressBar
+            label="Seek"
             value={seeking ? seekTime : playingTime}
             max={duration ? Math.floor(duration) : 1}
             color={highlight}
@@ -201,6 +202,7 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
           }}
         >
           <ProgressBar
+            label="Volume"
             ref={volumeBar}
             value={volume}
             step={0.01}

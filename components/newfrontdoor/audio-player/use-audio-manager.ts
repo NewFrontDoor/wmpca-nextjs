@@ -4,7 +4,8 @@ import {
   createContext,
   useReducer,
   useContext,
-  useCallback
+  useEffect,
+  useRef
 } from 'react';
 
 type Status = 'play' | 'playing' | 'pause' | 'paused' | 'stop' | 'stopped';
@@ -264,40 +265,81 @@ export function useAudioPlayer(): UseAudioPlayer {
 
   const {src, muted, speed, volume, playingTime, seeking, status} = playerState;
 
-  const setAudioPlayer = useCallback(
-    (audioPlayer: HTMLAudioElement | null) => {
-      if (audioPlayer) {
-        if (audioPlayer.src !== src) {
-          audioPlayer.load();
-        }
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const loadedSrc = useRef<string | undefined>(undefined);
 
-        audioPlayer.playbackRate = speed;
-        audioPlayer.volume = volume;
+  // Reload only when the source actually changes. This used to live in a
+  // callback ref that compared `audioPlayer.src` (the resolved absolute URL)
+  // against the raw `src` ("/audio.wav"), so it never matched: every render
+  // re-ran load(), which aborted the in-flight load and reset the element to
+  // readyState 0 — the player could never start.
+  useEffect(() => {
+    const audioPlayer = audioRef.current;
+    if (!audioPlayer || loadedSrc.current === src) {
+      return;
+    }
 
-        if (seeking) {
-          audioPlayer.currentTime = playingTime;
-        }
+    const isInitial = loadedSrc.current === undefined;
+    loadedSrc.current = src;
 
-        if (status === 'pause') {
-          audioPlayer.pause();
-        }
+    // On mount the element loads from the src attribute on its own.
+    if (!isInitial) {
+      audioPlayer.load();
+    }
+  }, [src]);
 
-        if (status === 'play') {
-          audioPlayer.play().catch(() => dispatch({type: 'paused'}));
-        }
-      }
-    },
-    [src, speed, volume, playingTime, seeking, status, dispatch]
-  );
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.playbackRate = speed;
+    }
+  }, [speed]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
+
+  useEffect(() => {
+    if (audioRef.current && seeking) {
+      audioRef.current.currentTime = playingTime;
+    }
+  }, [seeking, playingTime]);
+
+  // `durationchange` fires once, and with a cached file it can beat React's
+  // listener onto the element — so read the duration directly as well.
+  useEffect(() => {
+    const duration = audioRef.current?.duration;
+    if (duration !== undefined && !Number.isNaN(duration) && duration > 0) {
+      dispatch({type: 'set-duration', duration});
+    }
+  }, [src, dispatch]);
+
+  useEffect(() => {
+    const audioPlayer = audioRef.current;
+    if (!audioPlayer) {
+      return;
+    }
+
+    if (status === 'pause') {
+      audioPlayer.pause();
+    }
+
+    if (status === 'play') {
+      audioPlayer.play().catch(() => dispatch({type: 'paused'}));
+    }
+  }, [status, dispatch]);
 
   const playerProps: PlayerProps = {
-    ref: setAudioPlayer,
+    ref: audioRef,
     muted,
     src,
     onPause: () => dispatch({type: 'paused'}),
     onTimeUpdate: (event) =>
       dispatch({type: 'set-time', time: event.currentTarget.currentTime}),
     onDurationChange: (event) =>
+      dispatch({type: 'set-duration', duration: event.currentTarget.duration}),
+    onLoadedMetadata: (event) =>
       dispatch({type: 'set-duration', duration: event.currentTarget.duration}),
     onVolumeChange: (event) =>
       dispatch({type: 'set-volume', volume: event.currentTarget.volume}),
