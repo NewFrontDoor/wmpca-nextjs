@@ -205,23 +205,6 @@ export const theme: Theme = {
       }
     }
   },
-  box: {
-    banner: {
-      mx: 'auto',
-      bg: 'banner',
-      color: 'accent'
-    },
-    body: {
-      mx: 'auto',
-      bg: 'background',
-      color: 'text'
-    },
-    footer: {
-      display: 'flex',
-      justifyContent: 'center',
-      minHeight: '100px'
-    }
-  },
   forms: {
     label: {
       display: 'block',
