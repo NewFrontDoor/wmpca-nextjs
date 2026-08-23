@@ -74,15 +74,6 @@ importers:
       next:
         specifier: 16.2.4
         version: 16.2.4(@babel/core@7.29.0(supports-color@7.2.0))(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
-      next-compose-plugins:
-        specifier: ^2.2.1
-        version: 2.2.1
-      next-fonts:
-        specifier: ^1.5.1
-        version: 1.5.1(webpack@4.47.0(supports-color@7.2.0))
-      next-images:
-        specifier: ^1.8.4
-        version: 1.8.5(webpack@4.47.0(supports-color@7.2.0))
       polished:
         specifier: ^3.4.4
         version: 3.7.2
@@ -2656,12 +2647,6 @@ packages:
     resolution: {integrity: sha512-XXTUwCvisa5oacNGRP9SfNtYBNAMi+RPwBFmblZEF7N7swHYQS6/Zfk7SRwx4D5j3CH211YNRco1DEMNVfZCnQ==}
     engines: {node: '>=16.0.0'}
 
-  file-loader@6.2.0:
-    resolution: {integrity: sha512-qo3glqyTa61Ytg4u73GultjHGjdRyig3tG6lPtyX/jOEJvHif9uB0/OCI2Kif6ctF3caQTW2G5gym21oAsI4pw==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
-
   file-uri-to-path@1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
 
@@ -3443,10 +3428,6 @@ packages:
     resolution: {integrity: sha512-I5d00Pd/jwMD2QCduo657+YM/6L3KZu++pmX9VFncxaxvHcru9jx1lBaFft+r4Mt2jK0Yhp41XlRAihzPxHNCg==}
     engines: {node: '>=4.0.0'}
 
-  loader-utils@2.0.4:
-    resolution: {integrity: sha512-xXqpXoINfFhgua9xiqD8fPFHgkoq1mmmpE92WlDbm9rNRd/EbRb+Gqf908T2DMfuHjjJlksiK2RbHVOdD/MqSw==}
-    engines: {node: '>=8.9.0'}
-
   locate-path@2.0.0:
     resolution: {integrity: sha512-NCI2kiDkyR7VeEKm27Kda/iQHyKJe1Bu0FlTbYp3CqJu+9IFe9bLyAjMxf5ZDDbEg+iMPzB5zYyUTSm8wVTKmA==}
     engines: {node: '>=4'}
@@ -3582,14 +3563,6 @@ packages:
     resolution: {integrity: sha512-115fLhvZVqWwHPbClyntxEVfVDfl9DLLTuJvq3g2O/Oxi8AiNouAHvDSzHS0viUJc+V5vm3eq91Xwqn9dp4jRA==}
     hasBin: true
 
-  mime-db@1.52.0:
-    resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
-    engines: {node: '>= 0.6'}
-
-  mime-types@2.1.35:
-    resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
-    engines: {node: '>= 0.6'}
-
   mimic-fn@2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
     engines: {node: '>=6'}
@@ -3669,19 +3642,6 @@ packages:
 
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
-
-  next-compose-plugins@2.2.1:
-    resolution: {integrity: sha512-OjJ+fV15FXO2uQXQagLD4C0abYErBjyjE0I0FHpOEIB8upw0hg1ldFP6cqHTJBH1cZqy96OeR3u1dJ+Ez2D4Bg==}
-
-  next-fonts@1.5.1:
-    resolution: {integrity: sha512-pgEJ40xO1oRhM6RqhQJ9CzuZOFp6Zq+aAD/V1P9sq/wdepvLzhFxDm3lCZNoE7+78NSuMKgT6b1qeXSsqWuUMQ==}
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
-
-  next-images@1.8.5:
-    resolution: {integrity: sha512-YLBERp92v+Nu2EVxI9+wa32KRuxyxTC8ItbiHUWVPlatUoTl0yRqsNtP39c2vYv27VRvY4LlYcUGjNRBSMUIZA==}
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
 
   next@16.2.4:
     resolution: {integrity: sha512-kPvz56wF5frc+FxlHI5qnklCzbq53HTwORaWBGdT0vNoKh1Aya9XC8aPauH4NJxqtzbWsS5mAbctm4cr+EkQ2Q==}
@@ -4338,10 +4298,6 @@ packages:
     resolution: {integrity: sha512-i27Mic4KovM/lnGsy8whRCHhc7VicJajAjTrYg11K9zfZXnYIt4k5F+kZkwjnrhKzLic/HLU4j11mjsz2G/75g==}
     engines: {node: '>= 4'}
 
-  schema-utils@3.3.0:
-    resolution: {integrity: sha512-pN/yOAvcC+5rQ5nERGuwrjLlYvLTbCibnZ1I7B1LaiAz9BRBlE9GMgE/eqV30P7aJQUf7Ddimy/RsbYO/GrVGg==}
-    engines: {node: '>= 10.13.0'}
-
   semver-diff@3.1.1:
     resolution: {integrity: sha512-GX0Ix/CJcHyB8c4ykpHGIAvLyOwOobtM/8d+TQkAd81/bEjgPHrfba41Vpesr7jX/t8Uh+R3EX9eAS5be+jQYg==}
     engines: {node: '>=8'}
@@ -4867,16 +4823,6 @@ packages:
   urix@0.1.0:
     resolution: {integrity: sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg==}
     deprecated: Please see https://github.com/lydell/urix#deprecated
-
-  url-loader@4.1.1:
-    resolution: {integrity: sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==}
-    engines: {node: '>= 10.13.0'}
-    peerDependencies:
-      file-loader: '*'
-      webpack: ^4.0.0 || ^5.0.0
-    peerDependenciesMeta:
-      file-loader:
-        optional: true
 
   url-parse-lax@3.0.0:
     resolution: {integrity: sha512-NjFKA0DidqPa5ciFcSrXnAltTtzz84ogy+NebPvfEgAck0+TNg4UJ4IN+fB7zRZfbgUf0syOo9MDxFkDSMuFaQ==}
@@ -6741,24 +6687,32 @@ snapshots:
       '@webassemblyjs/helper-module-context': 1.9.0
       '@webassemblyjs/helper-wasm-bytecode': 1.9.0
       '@webassemblyjs/wast-parser': 1.9.0
+    optional: true
 
-  '@webassemblyjs/floating-point-hex-parser@1.9.0': {}
+  '@webassemblyjs/floating-point-hex-parser@1.9.0':
+    optional: true
 
-  '@webassemblyjs/helper-api-error@1.9.0': {}
+  '@webassemblyjs/helper-api-error@1.9.0':
+    optional: true
 
-  '@webassemblyjs/helper-buffer@1.9.0': {}
+  '@webassemblyjs/helper-buffer@1.9.0':
+    optional: true
 
   '@webassemblyjs/helper-code-frame@1.9.0':
     dependencies:
       '@webassemblyjs/wast-printer': 1.9.0
+    optional: true
 
-  '@webassemblyjs/helper-fsm@1.9.0': {}
+  '@webassemblyjs/helper-fsm@1.9.0':
+    optional: true
 
   '@webassemblyjs/helper-module-context@1.9.0':
     dependencies:
       '@webassemblyjs/ast': 1.9.0
+    optional: true
 
-  '@webassemblyjs/helper-wasm-bytecode@1.9.0': {}
+  '@webassemblyjs/helper-wasm-bytecode@1.9.0':
+    optional: true
 
   '@webassemblyjs/helper-wasm-section@1.9.0':
     dependencies:
@@ -6766,16 +6720,20 @@ snapshots:
       '@webassemblyjs/helper-buffer': 1.9.0
       '@webassemblyjs/helper-wasm-bytecode': 1.9.0
       '@webassemblyjs/wasm-gen': 1.9.0
+    optional: true
 
   '@webassemblyjs/ieee754@1.9.0':
     dependencies:
       '@xtuc/ieee754': 1.2.0
+    optional: true
 
   '@webassemblyjs/leb128@1.9.0':
     dependencies:
       '@xtuc/long': 4.2.2
+    optional: true
 
-  '@webassemblyjs/utf8@1.9.0': {}
+  '@webassemblyjs/utf8@1.9.0':
+    optional: true
 
   '@webassemblyjs/wasm-edit@1.9.0':
     dependencies:
@@ -6787,6 +6745,7 @@ snapshots:
       '@webassemblyjs/wasm-opt': 1.9.0
       '@webassemblyjs/wasm-parser': 1.9.0
       '@webassemblyjs/wast-printer': 1.9.0
+    optional: true
 
   '@webassemblyjs/wasm-gen@1.9.0':
     dependencies:
@@ -6795,6 +6754,7 @@ snapshots:
       '@webassemblyjs/ieee754': 1.9.0
       '@webassemblyjs/leb128': 1.9.0
       '@webassemblyjs/utf8': 1.9.0
+    optional: true
 
   '@webassemblyjs/wasm-opt@1.9.0':
     dependencies:
@@ -6802,6 +6762,7 @@ snapshots:
       '@webassemblyjs/helper-buffer': 1.9.0
       '@webassemblyjs/wasm-gen': 1.9.0
       '@webassemblyjs/wasm-parser': 1.9.0
+    optional: true
 
   '@webassemblyjs/wasm-parser@1.9.0':
     dependencies:
@@ -6811,6 +6772,7 @@ snapshots:
       '@webassemblyjs/ieee754': 1.9.0
       '@webassemblyjs/leb128': 1.9.0
       '@webassemblyjs/utf8': 1.9.0
+    optional: true
 
   '@webassemblyjs/wast-parser@1.9.0':
     dependencies:
@@ -6820,16 +6782,20 @@ snapshots:
       '@webassemblyjs/helper-code-frame': 1.9.0
       '@webassemblyjs/helper-fsm': 1.9.0
       '@xtuc/long': 4.2.2
+    optional: true
 
   '@webassemblyjs/wast-printer@1.9.0':
     dependencies:
       '@webassemblyjs/ast': 1.9.0
       '@webassemblyjs/wast-parser': 1.9.0
       '@xtuc/long': 4.2.2
+    optional: true
 
-  '@xtuc/ieee754@1.2.0': {}
+  '@xtuc/ieee754@1.2.0':
+    optional: true
 
-  '@xtuc/long@4.2.2': {}
+  '@xtuc/long@4.2.2':
+    optional: true
 
   acorn-jsx@5.3.2(acorn@7.4.1):
     dependencies:
@@ -6839,7 +6805,8 @@ snapshots:
     dependencies:
       acorn: 8.16.0
 
-  acorn@6.4.2: {}
+  acorn@6.4.2:
+    optional: true
 
   acorn@7.4.1: {}
 
@@ -6848,10 +6815,12 @@ snapshots:
   ajv-errors@1.0.1(ajv@6.15.0):
     dependencies:
       ajv: 6.15.0
+    optional: true
 
   ajv-keywords@3.5.2(ajv@6.15.0):
     dependencies:
       ajv: 6.15.0
+    optional: true
 
   ajv@6.15.0:
     dependencies:
@@ -6898,7 +6867,8 @@ snapshots:
       picomatch: 2.3.2
     optional: true
 
-  aproba@1.2.0: {}
+  aproba@1.2.0:
+    optional: true
 
   argparse@1.0.10:
     dependencies:
@@ -7000,11 +6970,13 @@ snapshots:
       bn.js: 4.12.3
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
+    optional: true
 
   assert@1.5.1:
     dependencies:
       object.assign: 4.1.7
       util: 0.10.4
+    optional: true
 
   assign-symbols@1.0.0: {}
 
@@ -7069,7 +7041,8 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  base64-js@1.5.1: {}
+  base64-js@1.5.1:
+    optional: true
 
   base@0.11.2:
     dependencies:
@@ -7083,7 +7056,8 @@ snapshots:
 
   baseline-browser-mapping@2.10.25: {}
 
-  big.js@5.2.2: {}
+  big.js@5.2.2:
+    optional: true
 
   binary-extensions@1.13.1:
     optional: true
@@ -7096,11 +7070,14 @@ snapshots:
       file-uri-to-path: 1.0.0
     optional: true
 
-  bluebird@3.7.2: {}
+  bluebird@3.7.2:
+    optional: true
 
-  bn.js@4.12.3: {}
+  bn.js@4.12.3:
+    optional: true
 
-  bn.js@5.2.3: {}
+  bn.js@5.2.3:
+    optional: true
 
   bowser@2.14.1: {}
 
@@ -7143,7 +7120,8 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  brorand@1.1.0: {}
+  brorand@1.1.0:
+    optional: true
 
   browser-split@0.0.0: {}
 
@@ -7155,12 +7133,14 @@ snapshots:
       evp_bytestokey: 1.0.3
       inherits: 2.0.4
       safe-buffer: 5.2.1
+    optional: true
 
   browserify-cipher@1.0.1:
     dependencies:
       browserify-aes: 1.2.0
       browserify-des: 1.0.2
       evp_bytestokey: 1.0.3
+    optional: true
 
   browserify-des@1.0.2:
     dependencies:
@@ -7168,12 +7148,14 @@ snapshots:
       des.js: 1.1.0
       inherits: 2.0.4
       safe-buffer: 5.2.1
+    optional: true
 
   browserify-rsa@4.1.1:
     dependencies:
       bn.js: 5.2.3
       randombytes: 2.1.0
       safe-buffer: 5.2.1
+    optional: true
 
   browserify-sign@4.2.5:
     dependencies:
@@ -7186,10 +7168,12 @@ snapshots:
       parse-asn1: 5.1.9
       readable-stream: 2.3.8
       safe-buffer: 5.2.1
+    optional: true
 
   browserify-zlib@0.2.0:
     dependencies:
       pako: 1.0.11
+    optional: true
 
   browserslist@4.28.2:
     dependencies:
@@ -7201,17 +7185,21 @@ snapshots:
 
   buf-compare@1.0.1: {}
 
-  buffer-from@1.1.2: {}
+  buffer-from@1.1.2:
+    optional: true
 
-  buffer-xor@1.0.3: {}
+  buffer-xor@1.0.3:
+    optional: true
 
   buffer@4.9.2:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.1.13
       isarray: 1.0.0
+    optional: true
 
-  builtin-status-codes@3.0.0: {}
+  builtin-status-codes@3.0.0:
+    optional: true
 
   cacache@12.0.4:
     dependencies:
@@ -7230,6 +7218,7 @@ snapshots:
       ssri: 6.0.2
       unique-filename: 1.1.1
       y18n: 4.0.3
+    optional: true
 
   cache-base@1.0.1:
     dependencies:
@@ -7346,9 +7335,11 @@ snapshots:
       fsevents: 2.3.3
     optional: true
 
-  chownr@1.1.4: {}
+  chownr@1.1.4:
+    optional: true
 
-  chrome-trace-event@1.0.4: {}
+  chrome-trace-event@1.0.4:
+    optional: true
 
   ci-info@2.0.0: {}
 
@@ -7357,6 +7348,7 @@ snapshots:
       inherits: 2.0.4
       safe-buffer: 5.2.1
       to-buffer: 1.2.2
+    optional: true
 
   clap@1.2.3:
     dependencies:
@@ -7424,7 +7416,8 @@ snapshots:
 
   colors@1.1.2: {}
 
-  commander@2.20.3: {}
+  commander@2.20.3:
+    optional: true
 
   commondir@1.0.1: {}
 
@@ -7438,6 +7431,7 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 2.3.8
       typedarray: 0.0.6
+    optional: true
 
   configstore@5.0.1:
     dependencies:
@@ -7450,9 +7444,11 @@ snapshots:
 
   confusing-browser-globals@1.0.9: {}
 
-  console-browserify@1.2.0: {}
+  console-browserify@1.2.0:
+    optional: true
 
-  constants-browserify@1.0.0: {}
+  constants-browserify@1.0.0:
+    optional: true
 
   convert-source-map@1.9.0: {}
 
@@ -7466,6 +7462,7 @@ snapshots:
       mkdirp: 0.5.6
       rimraf: 2.7.1
       run-queue: 1.0.3
+    optional: true
 
   copy-descriptor@0.1.1: {}
 
@@ -7496,6 +7493,7 @@ snapshots:
     dependencies:
       bn.js: 4.12.3
       elliptic: 6.6.1
+    optional: true
 
   create-error-class@3.0.2:
     dependencies:
@@ -7508,6 +7506,7 @@ snapshots:
       md5.js: 1.3.5
       ripemd160: 2.0.3
       sha.js: 2.4.12
+    optional: true
 
   create-hmac@1.1.7:
     dependencies:
@@ -7517,6 +7516,7 @@ snapshots:
       ripemd160: 2.0.3
       safe-buffer: 5.2.1
       sha.js: 2.4.12
+    optional: true
 
   cross-spawn@6.0.6:
     dependencies:
@@ -7546,6 +7546,7 @@ snapshots:
       public-encrypt: 4.0.3
       randombytes: 2.1.0
       randomfill: 1.0.4
+    optional: true
 
   crypto-random-string@2.0.0: {}
 
@@ -7562,7 +7563,8 @@ snapshots:
     dependencies:
       array-find-index: 1.0.2
 
-  cyclist@1.0.2: {}
+  cyclist@1.0.2:
+    optional: true
 
   damerau-levenshtein@1.0.8: {}
 
@@ -7662,6 +7664,7 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
+    optional: true
 
   detect-libc@2.1.2:
     optional: true
@@ -7671,6 +7674,7 @@ snapshots:
       bn.js: 4.12.3
       miller-rabin: 4.0.1
       randombytes: 2.1.0
+    optional: true
 
   dir-glob@2.2.2:
     dependencies:
@@ -7688,7 +7692,8 @@ snapshots:
     dependencies:
       esutils: 2.0.3
 
-  domain-browser@1.2.0: {}
+  domain-browser@1.2.0:
+    optional: true
 
   dot-prop@5.3.0:
     dependencies:
@@ -7708,6 +7713,7 @@ snapshots:
       inherits: 2.0.4
       readable-stream: 2.3.8
       stream-shift: 1.0.3
+    optional: true
 
   electron-to-chromium@1.5.349: {}
 
@@ -7720,6 +7726,7 @@ snapshots:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
       minimalistic-crypto-utils: 1.0.1
+    optional: true
 
   embla-carousel-react@8.6.0(react@19.2.5):
     dependencies:
@@ -7739,7 +7746,8 @@ snapshots:
 
   emoji-regex@9.2.2: {}
 
-  emojis-list@3.0.0: {}
+  emojis-list@3.0.0:
+    optional: true
 
   end-of-stream@1.4.5:
     dependencies:
@@ -7754,12 +7762,14 @@ snapshots:
       graceful-fs: 4.2.11
       memory-fs: 0.5.0
       tapable: 1.1.3
+    optional: true
 
   env-editor@0.4.2: {}
 
   errno@0.1.8:
     dependencies:
       prr: 1.0.1
+    optional: true
 
   error-ex@1.3.4:
     dependencies:
@@ -8205,6 +8215,7 @@ snapshots:
     dependencies:
       esrecurse: 4.3.0
       estraverse: 4.3.0
+    optional: true
 
   eslint-scope@5.1.1:
     dependencies:
@@ -8356,7 +8367,8 @@ snapshots:
 
   esutils@2.0.3: {}
 
-  events@3.3.0: {}
+  events@3.3.0:
+    optional: true
 
   eventsource@1.1.2: {}
 
@@ -8364,6 +8376,7 @@ snapshots:
     dependencies:
       md5.js: 1.3.5
       safe-buffer: 5.2.1
+    optional: true
 
   expand-brackets@2.1.4(supports-color@7.2.0):
     dependencies:
@@ -8451,7 +8464,8 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.4
 
-  figgy-pudding@3.5.2: {}
+  figgy-pudding@3.5.2:
+    optional: true
 
   figures@3.2.0:
     dependencies:
@@ -8464,12 +8478,6 @@ snapshots:
   file-entry-cache@8.0.0:
     dependencies:
       flat-cache: 4.0.1
-
-  file-loader@6.2.0(webpack@4.47.0(supports-color@7.2.0)):
-    dependencies:
-      loader-utils: 2.0.4
-      schema-utils: 3.3.0
-      webpack: 4.47.0(supports-color@7.2.0)
 
   file-uri-to-path@1.0.0:
     optional: true
@@ -8498,6 +8506,7 @@ snapshots:
       commondir: 1.0.1
       make-dir: 2.1.0
       pkg-dir: 3.0.0
+    optional: true
 
   find-cache-dir@3.3.2:
     dependencies:
@@ -8514,6 +8523,7 @@ snapshots:
   find-up@3.0.0:
     dependencies:
       locate-path: 3.0.0
+    optional: true
 
   find-up@4.1.0:
     dependencies:
@@ -8544,6 +8554,7 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       readable-stream: 2.3.8
+    optional: true
 
   follow-redirects@1.16.0(debug@2.6.9(supports-color@7.2.0)):
     optionalDependencies:
@@ -8578,6 +8589,7 @@ snapshots:
       iferr: 0.1.5
       imurmurhash: 0.1.4
       readable-stream: 2.3.8
+    optional: true
 
   fs.realpath@1.0.0: {}
 
@@ -8811,6 +8823,7 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       safe-buffer: 5.2.1
+    optional: true
 
   hash-base@3.1.2:
     dependencies:
@@ -8818,11 +8831,13 @@ snapshots:
       readable-stream: 2.3.8
       safe-buffer: 5.2.1
       to-buffer: 1.2.2
+    optional: true
 
   hash.js@1.1.7:
     dependencies:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
+    optional: true
 
   hasown@2.0.3:
     dependencies:
@@ -8839,6 +8854,7 @@ snapshots:
       hash.js: 1.1.7
       minimalistic-assert: 1.0.1
       minimalistic-crypto-utils: 1.0.1
+    optional: true
 
   hoist-non-react-statics@3.3.2:
     dependencies:
@@ -8852,7 +8868,8 @@ snapshots:
 
   http-cache-semantics@4.2.0: {}
 
-  https-browserify@1.0.0: {}
+  https-browserify@1.0.0:
+    optional: true
 
   hyperscript@2.0.2:
     dependencies:
@@ -8864,9 +8881,11 @@ snapshots:
     dependencies:
       safer-buffer: 2.1.2
 
-  ieee754@1.1.13: {}
+  ieee754@1.1.13:
+    optional: true
 
-  iferr@0.1.5: {}
+  iferr@0.1.5:
+    optional: true
 
   ignore@4.0.6: {}
 
@@ -8889,14 +8908,16 @@ snapshots:
 
   indexof@0.0.1: {}
 
-  infer-owner@1.0.4: {}
+  infer-owner@1.0.4:
+    optional: true
 
   inflight@1.0.6:
     dependencies:
       once: 1.4.0
       wrappy: 1.0.2
 
-  inherits@2.0.3: {}
+  inherits@2.0.3:
+    optional: true
 
   inherits@2.0.4: {}
 
@@ -9283,19 +9304,15 @@ snapshots:
 
   load-script2@1.0.1: {}
 
-  loader-runner@2.4.0: {}
+  loader-runner@2.4.0:
+    optional: true
 
   loader-utils@1.4.2:
     dependencies:
       big.js: 5.2.2
       emojis-list: 3.0.0
       json5: 1.0.2
-
-  loader-utils@2.0.4:
-    dependencies:
-      big.js: 5.2.2
-      emojis-list: 3.0.0
-      json5: 2.2.3
+    optional: true
 
   locate-path@2.0.0:
     dependencies:
@@ -9306,6 +9323,7 @@ snapshots:
     dependencies:
       p-locate: 3.0.0
       path-exists: 3.0.0
+    optional: true
 
   locate-path@5.0.0:
     dependencies:
@@ -9360,6 +9378,7 @@ snapshots:
     dependencies:
       pify: 4.0.1
       semver: 5.7.2
+    optional: true
 
   make-dir@3.1.0:
     dependencies:
@@ -9384,16 +9403,19 @@ snapshots:
       hash-base: 3.1.2
       inherits: 2.0.4
       safe-buffer: 5.2.1
+    optional: true
 
   memory-fs@0.4.1:
     dependencies:
       errno: 0.1.8
       readable-stream: 2.3.8
+    optional: true
 
   memory-fs@0.5.0:
     dependencies:
       errno: 0.1.8
       readable-stream: 2.3.8
+    optional: true
 
   meow@5.0.0:
     dependencies:
@@ -9438,20 +9460,17 @@ snapshots:
     dependencies:
       bn.js: 4.12.3
       brorand: 1.1.0
-
-  mime-db@1.52.0: {}
-
-  mime-types@2.1.35:
-    dependencies:
-      mime-db: 1.52.0
+    optional: true
 
   mimic-fn@2.1.0: {}
 
   mimic-response@1.0.1: {}
 
-  minimalistic-assert@1.0.1: {}
+  minimalistic-assert@1.0.1:
+    optional: true
 
-  minimalistic-crypto-utils@1.0.1: {}
+  minimalistic-crypto-utils@1.0.1:
+    optional: true
 
   minimatch@10.2.5:
     dependencies:
@@ -9480,6 +9499,7 @@ snapshots:
       pumpify: 1.5.1
       stream-each: 1.2.3
       through2: 2.0.5
+    optional: true
 
   mixin-deep@1.3.2:
     dependencies:
@@ -9498,6 +9518,7 @@ snapshots:
       mkdirp: 0.5.6
       rimraf: 2.7.1
       run-queue: 1.0.3
+    optional: true
 
   ms@2.0.0: {}
 
@@ -9534,21 +9555,8 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  neo-async@2.6.2: {}
-
-  next-compose-plugins@2.2.1: {}
-
-  next-fonts@1.5.1(webpack@4.47.0(supports-color@7.2.0)):
-    dependencies:
-      file-loader: 6.2.0(webpack@4.47.0(supports-color@7.2.0))
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@4.47.0(supports-color@7.2.0)))(webpack@4.47.0(supports-color@7.2.0))
-      webpack: 4.47.0(supports-color@7.2.0)
-
-  next-images@1.8.5(webpack@4.47.0(supports-color@7.2.0)):
-    dependencies:
-      file-loader: 6.2.0(webpack@4.47.0(supports-color@7.2.0))
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@4.47.0(supports-color@7.2.0)))(webpack@4.47.0(supports-color@7.2.0))
-      webpack: 4.47.0(supports-color@7.2.0)
+  neo-async@2.6.2:
+    optional: true
 
   next@16.2.4(@babel/core@7.29.0(supports-color@7.2.0))(babel-plugin-macros@3.1.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5):
     dependencies:
@@ -9608,6 +9616,7 @@ snapshots:
       url: 0.11.4
       util: 0.11.1
       vm-browserify: 1.1.2
+    optional: true
 
   node-releases@2.0.38: {}
 
@@ -9722,7 +9731,8 @@ snapshots:
       type-check: 0.4.0
       word-wrap: 1.2.5
 
-  os-browserify@0.3.0: {}
+  os-browserify@0.3.0:
+    optional: true
 
   os-tmpdir@1.0.2: {}
 
@@ -9755,6 +9765,7 @@ snapshots:
   p-locate@3.0.0:
     dependencies:
       p-limit: 2.3.0
+    optional: true
 
   p-locate@4.1.0:
     dependencies:
@@ -9777,13 +9788,15 @@ snapshots:
       registry-url: 5.1.0
       semver: 6.3.1
 
-  pako@1.0.11: {}
+  pako@1.0.11:
+    optional: true
 
   parallel-transform@1.2.0:
     dependencies:
       cyclist: 1.0.2
       inherits: 2.0.4
       readable-stream: 2.3.8
+    optional: true
 
   parent-module@1.0.1:
     dependencies:
@@ -9796,6 +9809,7 @@ snapshots:
       evp_bytestokey: 1.0.3
       pbkdf2: 3.1.5
       safe-buffer: 5.2.1
+    optional: true
 
   parse-headers@2.0.6: {}
 
@@ -9813,7 +9827,8 @@ snapshots:
 
   pascalcase@0.1.1: {}
 
-  path-browserify@0.0.1: {}
+  path-browserify@0.0.1:
+    optional: true
 
   path-dirname@1.0.2: {}
 
@@ -9845,6 +9860,7 @@ snapshots:
       safe-buffer: 5.2.1
       sha.js: 2.4.12
       to-buffer: 1.2.2
+    optional: true
 
   picocolors@1.1.1: {}
 
@@ -9859,6 +9875,7 @@ snapshots:
   pkg-dir@3.0.0:
     dependencies:
       find-up: 3.0.0
+    optional: true
 
   pkg-dir@4.2.0:
     dependencies:
@@ -9900,7 +9917,8 @@ snapshots:
 
   process-nextick-args@2.0.1: {}
 
-  process@0.11.10: {}
+  process@0.11.10:
+    optional: true
 
   progress-stream@2.0.0:
     dependencies:
@@ -9912,6 +9930,7 @@ snapshots:
   promise-inflight@1.0.1(bluebird@3.7.2):
     optionalDependencies:
       bluebird: 3.7.2
+    optional: true
 
   prop-types@15.8.1:
     dependencies:
@@ -9921,7 +9940,8 @@ snapshots:
 
   proto-props@2.0.0: {}
 
-  prr@1.0.1: {}
+  prr@1.0.1:
+    optional: true
 
   public-encrypt@4.0.3:
     dependencies:
@@ -9931,11 +9951,13 @@ snapshots:
       parse-asn1: 5.1.9
       randombytes: 2.1.0
       safe-buffer: 5.2.1
+    optional: true
 
   pump@2.0.1:
     dependencies:
       end-of-stream: 1.4.5
       once: 1.4.0
+    optional: true
 
   pump@3.0.4:
     dependencies:
@@ -9947,8 +9969,10 @@ snapshots:
       duplexify: 3.7.1
       inherits: 2.0.4
       pump: 2.0.1
+    optional: true
 
-  punycode@1.4.1: {}
+  punycode@1.4.1:
+    optional: true
 
   punycode@2.3.1: {}
 
@@ -9961,8 +9985,10 @@ snapshots:
   qs@6.15.1:
     dependencies:
       side-channel: 1.1.0
+    optional: true
 
-  querystring-es3@0.2.1: {}
+  querystring-es3@0.2.1:
+    optional: true
 
   querystringify@2.2.0: {}
 
@@ -9973,11 +9999,13 @@ snapshots:
   randombytes@2.1.0:
     dependencies:
       safe-buffer: 5.2.1
+    optional: true
 
   randomfill@1.0.4:
     dependencies:
       randombytes: 2.1.0
       safe-buffer: 5.2.1
+    optional: true
 
   rc@1.2.8:
     dependencies:
@@ -10176,11 +10204,13 @@ snapshots:
   rimraf@2.7.1:
     dependencies:
       glob: 7.2.3
+    optional: true
 
   ripemd160@2.0.3:
     dependencies:
       hash-base: 3.1.2
       inherits: 2.0.4
+    optional: true
 
   run-async@2.4.1: {}
 
@@ -10191,6 +10221,7 @@ snapshots:
   run-queue@1.0.3:
     dependencies:
       aproba: 1.2.0
+    optional: true
 
   rxjs@6.6.7:
     dependencies:
@@ -10240,12 +10271,7 @@ snapshots:
       ajv: 6.15.0
       ajv-errors: 1.0.1(ajv@6.15.0)
       ajv-keywords: 3.5.2(ajv@6.15.0)
-
-  schema-utils@3.3.0:
-    dependencies:
-      '@types/json-schema': 7.0.15
-      ajv: 6.15.0
-      ajv-keywords: 3.5.2(ajv@6.15.0)
+    optional: true
 
   semver-diff@3.1.1:
     dependencies:
@@ -10260,6 +10286,7 @@ snapshots:
   serialize-javascript@4.0.0:
     dependencies:
       randombytes: 2.1.0
+    optional: true
 
   set-function-length@1.2.2:
     dependencies:
@@ -10290,13 +10317,15 @@ snapshots:
       is-plain-object: 2.0.4
       split-string: 3.1.0
 
-  setimmediate@1.0.5: {}
+  setimmediate@1.0.5:
+    optional: true
 
   sha.js@2.4.12:
     dependencies:
       inherits: 2.0.4
       safe-buffer: 5.2.1
       to-buffer: 1.2.2
+    optional: true
 
   sharp@0.34.5:
     dependencies:
@@ -10411,7 +10440,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  source-list-map@2.0.1: {}
+  source-list-map@2.0.1:
+    optional: true
 
   source-map-js@1.2.1: {}
 
@@ -10427,12 +10457,14 @@ snapshots:
     dependencies:
       buffer-from: 1.1.2
       source-map: 0.6.1
+    optional: true
 
   source-map-url@0.4.1: {}
 
   source-map@0.5.7: {}
 
-  source-map@0.6.1: {}
+  source-map@0.6.1:
+    optional: true
 
   spdx-correct@3.2.0:
     dependencies:
@@ -10459,6 +10491,7 @@ snapshots:
   ssri@6.0.2:
     dependencies:
       figgy-pudding: 3.5.2
+    optional: true
 
   static-extend@0.1.2:
     dependencies:
@@ -10474,11 +10507,13 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       readable-stream: 2.3.8
+    optional: true
 
   stream-each@1.2.3:
     dependencies:
       end-of-stream: 1.4.5
       stream-shift: 1.0.3
+    optional: true
 
   stream-http@2.8.3:
     dependencies:
@@ -10487,8 +10522,10 @@ snapshots:
       readable-stream: 2.3.8
       to-arraybuffer: 1.0.1
       xtend: 4.0.2
+    optional: true
 
-  stream-shift@1.0.3: {}
+  stream-shift@1.0.3:
+    optional: true
 
   string-width@3.1.0:
     dependencies:
@@ -10559,6 +10596,7 @@ snapshots:
   string_decoder@1.3.0:
     dependencies:
       safe-buffer: 5.2.1
+    optional: true
 
   strip-ansi@3.0.1:
     dependencies:
@@ -10642,7 +10680,8 @@ snapshots:
       slice-ansi: 2.1.0
       string-width: 3.1.0
 
-  tapable@1.1.3: {}
+  tapable@1.1.3:
+    optional: true
 
   term-size@2.2.1: {}
 
@@ -10658,6 +10697,7 @@ snapshots:
       webpack: 4.47.0(supports-color@7.2.0)
       webpack-sources: 1.4.3
       worker-farm: 1.7.0
+    optional: true
 
   terser@4.8.1:
     dependencies:
@@ -10665,6 +10705,7 @@ snapshots:
       commander: 2.20.3
       source-map: 0.6.1
       source-map-support: 0.5.21
+    optional: true
 
   text-table@0.2.0: {}
 
@@ -10689,6 +10730,7 @@ snapshots:
   timers-browserify@2.0.12:
     dependencies:
       setimmediate: 1.0.5
+    optional: true
 
   tinyglobby@0.2.16:
     dependencies:
@@ -10704,13 +10746,15 @@ snapshots:
       is-absolute: 1.0.0
       is-negated-glob: 1.0.0
 
-  to-arraybuffer@1.0.1: {}
+  to-arraybuffer@1.0.1:
+    optional: true
 
   to-buffer@1.2.2:
     dependencies:
       isarray: 2.0.5
       safe-buffer: 5.2.1
       typed-array-buffer: 1.0.3
+    optional: true
 
   to-object-path@0.3.0:
     dependencies:
@@ -10761,7 +10805,8 @@ snapshots:
       tslib: 1.14.1
       typescript: 6.0.3
 
-  tty-browserify@0.0.0: {}
+  tty-browserify@0.0.0:
+    optional: true
 
   tunnel-agent@0.6.0:
     dependencies:
@@ -10820,7 +10865,8 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typedarray@0.0.6: {}
+  typedarray@0.0.6:
+    optional: true
 
   typescript-eslint@8.59.1(eslint@10.3.0(supports-color@7.2.0))(supports-color@7.2.0)(typescript@6.0.3):
     dependencies:
@@ -10858,10 +10904,12 @@ snapshots:
   unique-filename@1.1.1:
     dependencies:
       unique-slug: 2.0.2
+    optional: true
 
   unique-slug@2.0.2:
     dependencies:
       imurmurhash: 0.1.4
+    optional: true
 
   unique-string@2.0.0:
     dependencies:
@@ -10905,15 +10953,6 @@ snapshots:
 
   urix@0.1.0: {}
 
-  url-loader@4.1.1(file-loader@6.2.0(webpack@4.47.0(supports-color@7.2.0)))(webpack@4.47.0(supports-color@7.2.0)):
-    dependencies:
-      loader-utils: 2.0.4
-      mime-types: 2.1.35
-      schema-utils: 3.3.0
-      webpack: 4.47.0(supports-color@7.2.0)
-    optionalDependencies:
-      file-loader: 6.2.0(webpack@4.47.0(supports-color@7.2.0))
-
   url-parse-lax@3.0.0:
     dependencies:
       prepend-http: 2.0.0
@@ -10927,6 +10966,7 @@ snapshots:
     dependencies:
       punycode: 1.4.1
       qs: 6.15.1
+    optional: true
 
   use@3.1.1: {}
 
@@ -10935,10 +10975,12 @@ snapshots:
   util@0.10.4:
     dependencies:
       inherits: 2.0.3
+    optional: true
 
   util@0.11.1:
     dependencies:
       inherits: 2.0.3
+    optional: true
 
   v8-compile-cache@2.4.0: {}
 
@@ -10947,7 +10989,8 @@ snapshots:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
 
-  vm-browserify@1.1.2: {}
+  vm-browserify@1.1.2:
+    optional: true
 
   watchpack-chokidar2@2.0.1(supports-color@7.2.0):
     dependencies:
@@ -10965,6 +11008,7 @@ snapshots:
       watchpack-chokidar2: 2.0.1(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   weakmap-polyfill@2.0.4: {}
 
@@ -10972,6 +11016,7 @@ snapshots:
     dependencies:
       source-list-map: 2.0.1
       source-map: 0.6.1
+    optional: true
 
   webpack@4.47.0(supports-color@7.2.0):
     dependencies:
@@ -11000,6 +11045,7 @@ snapshots:
       webpack-sources: 1.4.3
     transitivePeerDependencies:
       - supports-color
+    optional: true
 
   whet.extend@0.9.9: {}
 
@@ -11061,6 +11107,7 @@ snapshots:
   worker-farm@1.7.0:
     dependencies:
       errno: 0.1.8
+    optional: true
 
   wrappy@1.0.2: {}
 
@@ -11128,7 +11175,8 @@ snapshots:
 
   xtend@4.0.2: {}
 
-  y18n@4.0.3: {}
+  y18n@4.0.3:
+    optional: true
 
   yallist@3.1.1: {}
 
