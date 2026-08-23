@@ -60,7 +60,9 @@ const Carousel = ({
   const [viewportRef, embla] = useEmblaCarousel({
     loop: true,
     startIndex,
-    draggable
+    // embla v8 renamed `draggable` to `watchDrag`; under the old name the
+    // option was silently ignored, which disabled drag/swipe entirely.
+    watchDrag: draggable
   });
 
   const [previousBtnEnabled, setPreviousBtnEnabled] = useState(false);
@@ -102,11 +104,17 @@ const Carousel = ({
   }, [embla]);
 
   useEffect(() => {
-    if (embla) {
-      setScrollSnaps(embla.scrollSnapList());
-      embla.on('select', onSelect);
-      onSelect();
+    if (!embla) {
+      return;
     }
+
+    setScrollSnaps(embla.scrollSnapList());
+    embla.on('select', onSelect);
+    onSelect();
+
+    return () => {
+      embla.off('select', onSelect);
+    };
   }, [embla, onSelect]);
 
   return (
