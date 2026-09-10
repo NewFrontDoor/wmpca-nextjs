@@ -10,7 +10,7 @@ const Menu = ({ menuItems }) => {
 			<Text as="ul" variant="menuUl" sx={{ display: ["none", "block"] }}>
 				{menuItems.map((item) => (
 					<li key={item.childpages[0]?.pathname + "root"}>
-						<Link href={item.childpages[0].slug.current}>
+						<Link href={`/${item.childpages[0].slug.current}`}>
 							{item.text}
 							{item.children && " »"}
 						</Link>
