@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {Flex, jsx} from 'theme-ui';
 import format from 'date-fns/format';
 
-const PostPage = ({post, dateFormat = 'EEEE, MMMM do yyyy', link, blockText}) => {
+const PostPage = ({post, pageBody, dateFormat = 'EEEE, MMMM do yyyy', link, blockText}) => {
   const {title, author, _createdAt, categories, date, body} = post;
   return (
     <Flex
@@ -40,7 +40,7 @@ const PostPage = ({post, dateFormat = 'EEEE, MMMM do yyyy', link, blockText}) =>
           paddingTop: [null, '23.5px']
         }}
       >
-        {blockText(body)}
+        {blockText(pageBody || body)}
       </div>
     </Flex>
   );
