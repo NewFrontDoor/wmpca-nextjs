@@ -14,26 +14,29 @@ const PostPage = ({post, dateFormat = 'EEEE, MMMM do yyyy', link, blockText}) =>
         width: '100vw',
         maxWidth: '920px',
         paddingTop: '40px',
-        minHeight: [null, '600px']
+        minHeight: [null, '600px'],
+        justifyContent: 'space-between',
       }}
     >
       <h2>{title}</h2>
-      {author?.name && <small>by {author.name}</small>}
-      <small>Posted on {format(new Date(_createdAt), dateFormat)}</small>
-      {categories?.length > 0 && (
-        <small sx={{display: ['none', 'block']}}>
-          <ul>
-            {categories.map((category) => (
-              <li key={category.title + date}>{link(category)}</li>
-            ))}
-          </ul>
-        </small>
-      )}
+      <div>
+        <large>by {author?.name || "WMPCA"}</large><br />
+        <small>Posted on {format(new Date(_createdAt), dateFormat)}</small>
+        {categories?.length > 0 && (
+          <small sx={{display: ['none', 'block']}}>
+            <ul>
+              {categories.map((category) => (
+                <li key={category.title + date}>{link(category)}</li>
+              ))}
+            </ul>
+          </small>
+        )}
+      </div>
       <div
         sx={{
           flex: '1 0 auto',
           width: 'auto',
-          maxWidth: ['24em', '32em'],
+          maxWidth: ['100%'],
           paddingTop: [null, '23.5px']
         }}
       >

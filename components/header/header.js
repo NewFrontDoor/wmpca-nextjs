@@ -16,9 +16,7 @@ const Header = ({ heading, breadcrumbs }) => {
 		>
 			<Head>
 				<title>
-					<>
-						WMPCA - {heading}
-					</>
+						{`WMPCA - ${heading}`}
 				</title>
 				<link
 					rel="apple-touch-icon"
