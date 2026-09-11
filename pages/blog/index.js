@@ -30,6 +30,7 @@ const Link = ({ link, data, children }) => {
 
 const Blog = ({ mainData, menuData, blogPosts }) => {
 	const { content, title, mainImage } = mainData;
+
 	return (
 		<Layout menuItems={menuData.menuitems} footer={menuData.footer}>
 			<Grid gap={20}>

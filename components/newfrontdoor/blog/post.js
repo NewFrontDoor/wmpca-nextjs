@@ -8,6 +8,7 @@ const Post = ({
   blockText,
   bodyTransform = (props) => props,
   Sidebar = DefaultSidebar,
+  slug,
   ...rest
 }) => {
   const readingLength = readingTime(bodyTransform(body));
@@ -24,7 +25,7 @@ const Post = ({
       }}
     >
 
-      <Sidebar {...rest} readingLength={readingLength} />
+      <Sidebar {...rest} readingLength={readingLength} slug={slug} />
       <div
         sx={{
           flex: '1 0 auto',
@@ -46,7 +47,8 @@ Post.propTypes = {
   body: PropTypes.oneOf([PropTypes.array, PropTypes.string]).isRequired,
   blockText: PropTypes.func.isRequired,
   Sidebar: PropTypes.elementType,
-  bodyTransform: PropTypes.func
+  bodyTransform: PropTypes.func,
+  slug: PropTypes.string.isRequired
 };
 
 export default Post;

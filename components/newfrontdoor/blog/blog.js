@@ -20,7 +20,7 @@ const Blog = (props) => {
           );
         })
         .map((post) => (
-          <Post key={post.title} {...post} {...props} />
+          <Post key={post.title} slug={post.slug} {...post} {...props} />
         ))}
     </div>
   );
@@ -36,7 +36,8 @@ Blog.propTypes = {
         PropTypes.shape({
           title: PropTypes.string
         })
-      ).isRequired
+      ).isRequired,
+      slug: PropTypes.string.isRequired,
     })
   ).isRequired,
   category: PropTypes.objectOf(PropTypes.string)
