@@ -60,13 +60,13 @@ export type StyledPlayerProps = {
 };
 
 const StyledPlayer: FC<StyledPlayerProps> = ({
-  highlight,
-  base,
-  hasBorder,
-  background,
-  isInvert,
-  hasPlaybackspeed,
-  width
+  highlight = '#548BF4',
+  base = '#ddd',
+  hasBorder = true,
+  background = 'unset',
+  isInvert = false,
+  hasPlaybackspeed = true,
+  width = "280px"
 }) => {
   const volumeBar = useRef<Range>(null);
   const {playerState, playerProps, dispatch} = useAudioPlayer();
@@ -160,6 +160,7 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
           onKeyDown={() => dispatch({type: 'start-seeking'})}
         >
           <ProgressBar
+            label="Seek"
             value={seeking ? seekTime : playingTime}
             max={duration ? Math.floor(duration) : 1}
             color={highlight}
@@ -201,6 +202,7 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
           }}
         >
           <ProgressBar
+            label="Volume"
             ref={volumeBar}
             value={volume}
             step={0.01}
@@ -238,16 +240,6 @@ const StyledPlayer: FC<StyledPlayerProps> = ({
       )}
     </div>
   );
-};
-
-StyledPlayer.defaultProps = {
-  highlight: '#548BF4',
-  base: '#ddd',
-  hasBorder: true,
-  background: 'unset',
-  isInvert: false,
-  hasPlaybackspeed: true,
-  width: '280px'
 };
 
 StyledPlayer.propTypes = {

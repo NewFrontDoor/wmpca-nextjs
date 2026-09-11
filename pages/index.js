@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Carousel } from "../components/newfrontdoor/carousel";
-import Contact from "../templates/contact";
-import Panels from "../components/panels";
-import Portfolio from "../components/portfolio";
 import Header from "../components/header/header";
 import BlockText from "../components/block-text-serializer";
 import Layout from "../components/layout";
@@ -25,10 +22,6 @@ export default function Home ({ mainData, menuData }) {
 						))}
 					</Carousel>
 				)}
-				{/* {panels && <Panels />}
-
-        {portfolio && <Portfolio portfolio={portfolio} />}
-        {contact && <Contact map={contact.map} contact={contact.content} />} */}
 				<main>{welcome && <BlockText blocks={welcome} />}</main>
 			</Grid>
 		</Layout>

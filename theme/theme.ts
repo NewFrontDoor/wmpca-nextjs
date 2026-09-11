@@ -137,7 +137,7 @@ export const theme: Theme = {
       textDecoration: 'none',
       cursor: 'pointer',
       '&:visited': {
-        color: 'text'
+        color: 'accent'
       },
       '&:hover': {
         color: 'text'
@@ -203,23 +203,6 @@ export const theme: Theme = {
         color: 'background',
         cursor: 'pointer'
       }
-    }
-  },
-  box: {
-    banner: {
-      mx: 'auto',
-      bg: 'banner',
-      color: 'accent'
-    },
-    body: {
-      mx: 'auto',
-      bg: 'background',
-      color: 'text'
-    },
-    footer: {
-      display: 'flex',
-      justifyContent: 'center',
-      minHeight: '100px'
     }
   },
   forms: {

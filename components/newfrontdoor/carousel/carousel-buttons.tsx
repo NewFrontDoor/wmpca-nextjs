@@ -109,7 +109,7 @@ type DotButtonProps = {
 };
 
 export const DotButton = ({selected, onClick}: DotButtonProps) => (
-  <Dot2 selected={selected} onClick={onClick} />
+  <Dot selected={selected} onClick={onClick} />
 );
 
 type PreviousButtonProps = {

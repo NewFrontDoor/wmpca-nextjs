@@ -5,7 +5,6 @@ import Sidebar from "./sidebar/sidebar";
 import FooterIcons from "./footer/footer-icons";
 import Footer from "./footer/footer";
 import FooterBox from "./footer/footer-box";
-// Import ActionBlock from './action-block';
 
 export default function Layout({ menuItems, children, footer }) {
 	return (

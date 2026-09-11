@@ -1,7 +1,21 @@
-import {jsx} from 'theme-ui';
 import {forwardRef} from 'react';
 import PropTypes from 'prop-types';
-import {Range, getTrackBackground} from 'react-range';
+import {Range as RangeBase, getTrackBackground} from 'react-range';
+import type {IProps} from 'react-range/lib/types';
+
+type RangeProps = Partial<IProps> &
+  Pick<
+    IProps,
+    'values' | 'min' | 'max' | 'onChange' | 'renderTrack' | 'renderThumb'
+  >;
+
+// theme-ui's JSX namespace intersects the raw prop type back over React's
+// LibraryManagedAttributes (see @theme-ui/core jsx-namespace.d.ts), so
+// react-range's defaultProps stop counting as optional. Re-expose the class
+// with those props marked optional again.
+const Range = RangeBase as unknown as new (
+  props: RangeProps
+) => Omit<RangeBase, 'props'> & {props: RangeProps};
 
 type ProgressBarProps = {
   value: number;
@@ -11,13 +25,27 @@ type ProgressBarProps = {
   isInteracting: boolean;
   color?: string;
   isInvert?: boolean;
+  label?: string;
 };
 
-const ProgressBar = forwardRef<Range, ProgressBarProps>(
-  ({value, max, onChange, step, isInteracting, color, isInvert}, rangeRef) => {
+const ProgressBar = forwardRef<RangeBase, ProgressBarProps>(
+  (
+    {
+      value,
+      max,
+      onChange,
+      step = 1,
+      isInteracting,
+      color = '#548BF4',
+      isInvert = false,
+      label = 'Seek'
+    },
+    rangeRef
+  ) => {
     return (
       <Range
         ref={rangeRef}
+        label={label}
         step={step}
         min={0}
         max={max}
@@ -49,8 +77,9 @@ const ProgressBar = forwardRef<Range, ProgressBarProps>(
                 borderRadius: '4px',
                 alignSelf: 'center',
                 background: getTrackBackground({
+                  // One colour per side of the thumb, so values.length + 1.
                   values: [value],
-                  colors: color ? [color, '#ccc'] : ['#ccc'],
+                  colors: [color, '#ccc'],
                   min: 0,
                   max
                 })
@@ -60,8 +89,9 @@ const ProgressBar = forwardRef<Range, ProgressBarProps>(
             </div>
           </div>
         )}
-        renderThumb={({props: {style, ...props}}) => (
+        renderThumb={({props: {style, key, ...props}}) => (
           <div
+            key={key}
             {...props}
             sx={{
               ...style,
@@ -93,17 +123,13 @@ const ProgressBar = forwardRef<Range, ProgressBarProps>(
 
 export default ProgressBar;
 
-ProgressBar.defaultProps = {
-  step: 1,
-  isInvert: false
-};
-
 ProgressBar.propTypes = {
   value: PropTypes.number.isRequired,
   max: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   step: PropTypes.number,
   isInteracting: PropTypes.bool.isRequired,
-  color: PropTypes.string.isRequired,
-  isInvert: PropTypes.bool
+  color: PropTypes.string,
+  isInvert: PropTypes.bool,
+  label: PropTypes.string
 };

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { ReactComponent as LogoImg } from "../../public/logo.svg";
 import { jsx } from "theme-ui";
 
 const Logo = () => {

@@ -1,16 +1,18 @@
 import PropTypes from 'prop-types';
 import {jsx, Styled} from 'theme-ui';
 import format from 'date-fns/format';
+import NextLink from 'next/link';
 
 const Sidebar = ({
   title,
   author,
   _createdAt,
-  dateFormat,
+  overrides = {},
+  dateFormat = 'EEEE, MMMM do yyyy',
   readingLength,
   categories,
+  slug,
   Link,
-  overrides
 }) => {
   return (
     <aside
@@ -27,7 +29,9 @@ const Sidebar = ({
         ...overrides
       }}
     >
-      <h2>{title}</h2>
+      <NextLink href={`/blog/${slug}`} sx={{ variant: "styles.a" }}>
+       <h2 sx={{ variant: "styles.h2" }}>{title}</h2>
+      </NextLink>
       <div>
         {author && (
           <Link link={author._id} data={author}>
@@ -66,11 +70,6 @@ Sidebar.propTypes = {
   Link: PropTypes.func.isRequired,
   overrides: PropTypes.object,
   readingLength: PropTypes.object
-};
-
-Sidebar.defaultProps = {
-  overrides: {},
-  dateFormat: 'EEEE, MMMM do yyyy'
 };
 
 export default Sidebar;
