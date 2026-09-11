@@ -1,27 +1,29 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import React from "react";
 import PropTypes from "prop-types";
 import BlockContent from "@sanity/block-content-to-react";
-import { Styled, jsx, Box } from "theme-ui";
+import { jsx, Box } from "theme-ui";
 import urlFor from "../lib/sanityImg";
-import { Form, validation } from "@newfrontdoor/form";
+import { Form, validation } from "./newfrontdoor/form";
 import getVideoId from "get-video-id";
 import Vimeo from "@u-wave/react-vimeo";
 import Youtube from "@u-wave/react-youtube";
-import { StyledPlayer } from "@newfrontdoor/audio-player";
+import { AudioPlayer } from "./newfrontdoor/audio-player";
 import Link from "next/link";
 import { submitForm } from "../lib/sanity-fns";
 
-const AudioSerializer = ({ node }) => {
-	return <StyledPlayer audio={node.url} isInvert={false} width="300px" />;
-};
-
-AudioSerializer.propTypes = {
+type AudioSerializer = {
 	node: PropTypes.object.isRequired
 };
 
-const VideoSerializer = ({ node }) => {
+const AudioSerializer = ({ node }: AudioSerializer) => {
+	return <AudioPlayer src={node.url} isInvert={false} width="300px" />;
+};
+
+
+type VideoSerializer = {
+	node: PropTypes.object.isRequired
+};
+
+const VideoSerializer = ({ node }: VideoSerializer) => {
 	const { url } = node;
 	if (url) {
 		const video = getVideoId(url || null);
@@ -36,46 +38,47 @@ const VideoSerializer = ({ node }) => {
 	}
 };
 
-VideoSerializer.propTypes = {
-	node: PropTypes.object.isRequired
+type CustomStyleSerializer = {
+	children: string;
+}
+
+const CustomStyleSerializer = ({ children }: CustomStyleSerializer) => {
+	return <p sx={{ variant: "styles.p" }}>{children}</p>;
 };
 
-const CustomStyleSerializer = ({ children }) => {
-	return <Styled.p>{children}</Styled.p>;
-};
+type AnchorSerializer = {
+	children: PropTypes.array.isRequired,
+	mark: PropTypes.object.isRequired
+}
 
-CustomStyleSerializer.propTypes = {
-	children: PropTypes.string.isRequired
-};
-
-const AnchorSerializer = ({ children, mark }) => {
+const AnchorSerializer = ({ children, mark }: AnchorSerializer) => {
 	return <span id={mark.id}>{children}</span>;
 };
 
-AnchorSerializer.propTypes = {
-	children: PropTypes.array.isRequired,
-	mark: PropTypes.object.isRequired
+type ImageSerializer = {
+	node: PropTypes.node.isRequired
 };
 
-const ImageSerializer = ({ node }) => {
+const ImageSerializer = ({ node }: ImageSerializer) => {
 	return <img src={urlFor(node).url() || ""} alt="" />;
 };
 
-ImageSerializer.propTypes = {
-	node: PropTypes.node.isRequired
-};
 
 const Success = (node) => (
 	<Box as="form" id={node.id}>
 		<fieldset>
-			<Styled.p>
+			<p  sx={{ variant: "styles.p" }}>
 				{node.onSuccess || "Thank you for your submission. We will get back to you as soon as we can."}
-			</Styled.p>
+			</p>
 		</fieldset>
 	</Box>
 );
 
-const FormSerializer = ({ node }) => {
+type FormSerializer = {
+	node: PropTypes.object.isRequired
+};
+
+const FormSerializer = ({ node }: FormSerializer) => {
 	return (
 		<Form
 			{...node}
@@ -87,14 +90,11 @@ const FormSerializer = ({ node }) => {
 	);
 };
 
-FormSerializer.propTypes = {
-	node: PropTypes.object.isRequired
-};
 
 const InternalLinkSerializer = ({ mark, children }) => {
 	return (
-		<Link href={mark.slug || ""} passHref>
-			<Styled.a>{children}</Styled.a>
+		<Link href={mark.slug || ""}  sx={{ variant: "styles.a" }}>
+			{children}
 		</Link>
 	);
 };
@@ -107,10 +107,8 @@ InternalLinkSerializer.propTypes = {
 };
 
 const ExternalLinkSerializer = ({ mark, children }) => (
-	<Link href={mark.href} passHref>
-		<Styled.a target="_blank" rel="noopener noreferrer">
-			{children}
-		</Styled.a>
+	<Link href={mark.href} target="_blank" rel="noopener noreferrer"  sx={{ variant: "styles.a" }}>
+		{children}
 	</Link>
 );
 
@@ -123,10 +121,8 @@ ExternalLinkSerializer.propTypes = {
 
 const FileLinkSerializer = ({ mark, children }) => {
 	return (
-		<Link href={mark.url} passHref>
-			<Styled.a target="_blank" rel="noopener noreferrer">
-				{children}
-			</Styled.a>
+		<Link href={mark.url} passHref target="_blank" rel="noopener noreferrer"  sx={{ variant: "styles.a" }}>
+			{children}
 		</Link>
 	);
 };
@@ -138,16 +134,21 @@ FileLinkSerializer.propTypes = {
 	}).isRequired
 };
 
-const BlockRenderer = (props) => {
+type BlockRenderer = {
+	children: PropTypes.any,
+	node: PropTypes.object.isRequired
+};
+
+const BlockRenderer = (props: BlockRenderer) => {
 	const style = props.node.style || "normal";
 
 	const elements = {
-		h1: <Styled.h1>{props.children}</Styled.h1>,
-		h2: <Styled.h2>{props.children}</Styled.h2>,
-		h3: <Styled.h3>{props.children}</Styled.h3>,
-		h4: <Styled.h4>{props.children}</Styled.h4>,
-		h5: <Styled.h5>{props.children}</Styled.h5>,
-		h6: <Styled.h6>{props.children}</Styled.h6>
+		h1: <h1 sx={{ variant: "styles.h1" }}>{props.children}</h1>,
+		h2: <h2 sx={{ variant: "styles.h2" }}>{props.children}</h2>,
+		h3: <h3 sx={{ variant: "styles.h3" }}>{props.children}</h3>,
+		h4: <h4 sx={{ variant: "styles.h4" }}>{props.children}</h4>,
+		h5: <h5 sx={{ variant: "styles.h5" }}>{props.children}</h5>,
+		h6: <h6 sx={{ variant: "styles.h6" }}>{props.children}</h6>
 	};
 
 	if (/^h\d/.test(style)) {
@@ -162,12 +163,11 @@ const BlockRenderer = (props) => {
 	return BlockContent.defaultSerializers.types.block(props);
 };
 
-BlockRenderer.propTypes = {
-	children: PropTypes.any,
-	node: PropTypes.object.isRequired
+type BlockText = {
+	blocks: PropTypes.array.isRequired
 };
 
-const BlockText = ({ blocks }) => {
+const BlockText = ({ blocks }: BlockText) => {
 	return (
 		<BlockContent
 			blocks={blocks}
@@ -191,8 +191,5 @@ const BlockText = ({ blocks }) => {
 	);
 };
 
-BlockText.propTypes = {
-	blocks: PropTypes.array.isRequired
-};
 
 export default BlockText;

@@ -1,8 +1,7 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import PropTypes from "prop-types";
 import React from "react";
-import { jsx } from "theme-ui";
+import { Text, jsx } from "theme-ui";
+import Link from "next/link";
 import Logo from "./logo";
 import Menu from "./menu";
 
@@ -21,6 +20,17 @@ const SideBar = ({ menuItems }) => {
 		>
 			<Logo />
 			<Menu menuItems={menuItems} />
+			{process.env.NODE_ENV !== "production" && (
+				<Text
+					as="ul"
+					variant="menuUl"
+					sx={{ display: ["none", "block"], mt: "20px", opacity: 0.6 }}
+				>
+					<li>
+						<Link href="/audio-test">Audio test</Link>
+					</li>
+				</Text>
+			)}
 		</nav>
 	);
 };

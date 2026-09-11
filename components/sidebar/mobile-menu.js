@@ -1,5 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 import React from "react";

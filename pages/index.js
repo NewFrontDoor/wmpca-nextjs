@@ -1,11 +1,6 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from "react";
 import PropTypes from "prop-types";
-import Carousel from "@newfrontdoor/carousel";
-import Contact from "../templates/contact";
-import Panels from "../components/panels";
-import Portfolio from "../components/portfolio";
+import { Carousel } from "../components/newfrontdoor/carousel";
 import Header from "../components/header/header";
 import BlockText from "../components/block-text-serializer";
 import Layout from "../components/layout";
@@ -14,7 +9,7 @@ import { mainQuery, menuQuery } from "../lib/queries";
 import urlFor from "../lib/sanityImg";
 import { Grid, jsx } from "theme-ui";
 
-const Home = ({ mainData, menuData }) => {
+export default function Home ({ mainData, menuData }) {
 	const { heading, images, welcome } = mainData;
 	return (
 		<Layout menuItems={menuData.menuitems} footer={menuData.footer}>
@@ -27,10 +22,6 @@ const Home = ({ mainData, menuData }) => {
 						))}
 					</Carousel>
 				)}
-				{/* {panels && <Panels />}
-
-        {portfolio && <Portfolio portfolio={portfolio} />}
-        {contact && <Contact map={contact.map} contact={contact.content} />} */}
 				<main>{welcome && <BlockText blocks={welcome} />}</main>
 			</Grid>
 		</Layout>
@@ -42,7 +33,6 @@ Home.propTypes = {
 	menuData: PropTypes.object.isRequired
 };
 
-export default Home;
 
 Home.getInitialProps = async () => {
 	const results = await fetchQuery(

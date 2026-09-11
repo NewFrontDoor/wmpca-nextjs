@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Grid, Styled } from "theme-ui";
-import { Blog as BlogBody } from "@newfrontdoor/blog";
+import { Grid } from "theme-ui";
+import { Blog as BlogBody, Content } from "../../components/newfrontdoor/blog";
 import Header from "../../components/header/header";
 import { fetchQuery } from "../../lib/sanity";
 import MainImage from "../../components/main-image";
@@ -14,22 +14,22 @@ import {
 	menuQuery,
 	blogPageQuery,
 	blogSearchQuery,
+	contentQuery,
 } from "../../lib/queries";
 import { withEmotionCache } from "@emotion/core";
 
 const Link = ({ link, data, children }) => {
 	return (
 		<BasicLink
-			passHref
 			href={`/blog?search=${link}`}
-			as={`/blog?search=${data?.slug?.current || link}`}
+			sx={{ variant: "styles.a" }}
 		>
-			<Styled.a>{children}</Styled.a>
+			{children}
 		</BasicLink>
 	);
 };
 
-const Blog = ({ mainData, menuData, blogPosts }) => {
+const Blog = ({ mainData, menuData, blogPosts, contents }) => {
 	const { content, title, mainImage } = mainData;
 
 	return (
@@ -37,6 +37,7 @@ const Blog = ({ mainData, menuData, blogPosts }) => {
 			<Grid gap={20}>
 				<Header heading={title} />
 				{mainImage && <MainImage mainImage={mainImage} />}
+				{contents && <Content categories={contents} />}
 				<BlockText blocks={content} />
 				<BlogBody
 					dateFormat="EEEE, MMMM do yyyy"
@@ -49,6 +50,9 @@ const Blog = ({ mainData, menuData, blogPosts }) => {
 						fontFamily: "body",
 						lineHeight: 1,
 						position: [null, null, "sticky"],
+						'li': {
+							lineHeight: "1.5rem"
+						}
 					}}
 					Link={Link}
 					blockText={(content) => <BlockText blocks={content} />}
@@ -67,6 +71,7 @@ Blog.propTypes = {
 	}).isRequired,
 	menuData: PropTypes.object.isRequired,
 	blogPosts: PropTypes.array.isRequired,
+	contents: PropTypes.array.isRequired,
 };
 
 Blog.getInitialProps = async ({ query }) => {
@@ -75,7 +80,8 @@ Blog.getInitialProps = async ({ query }) => {
     {
       "mainData": ${pageQuery("blog")},
       "menuData": ${menuQuery},
-      "blogPosts": ${blogs}
+      "blogPosts": ${blogs},
+			"contents": ${contentQuery}
     }
     `);
 	return results;

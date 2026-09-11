@@ -1,5 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "../link";
@@ -13,8 +11,8 @@ const Breadcrumbs = ({ breadcrumbs }) => {
 					return (
 						<Link
 							key={crumb.title}
-							passedSx={{ m: "-3px 5px -1px 0" }}
-							link={crumb.link}
+							sx={{ m: "-3px 5px -1px 0" }}
+							href={crumb.link}
 						>
 							{crumb.title} ←{" "}
 						</Link>

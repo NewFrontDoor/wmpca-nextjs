@@ -1,4 +1,6 @@
-const AWS = require("aws-sdk");
+const {
+	SES
+} = require("@aws-sdk/client-ses");
 import rateLimit from "../../utils/rate-limit";
 import { defaultQuery } from "../../lib/queries";
 import { fetchQuery } from "../../lib/sanity";
@@ -37,12 +39,12 @@ export default async function(req, res) {
 				.join("");
 
 			const emailBody = `
-    <p>Hi,</p>
-    <p>A new form submission has arrived. Please see the details below.</p>
-    <table>
-    ${table}
-    </table>
-    `;
+	<p>Hi,</p>
+	<p>A new form submission has arrived. Please see the details below.</p>
+	<table>
+	${table}
+	</table>
+	`;
 
 			await limiter.check(res, 10, "CACHE_TOKEN"); //requests per minute
 
@@ -65,9 +67,8 @@ export default async function(req, res) {
 					}
 				}
 			};
-			new AWS.SES(SESConfig)
+			new SES(SESConfig)
 				.sendEmail(params)
-				.promise()
 				.then((sesRes) => {
 					console.log(sesRes);
 					res.status(200).json({ message: "Email sent" });

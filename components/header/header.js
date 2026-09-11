@@ -1,5 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import React from "react";
 import PropTypes from "prop-types";
 import { Text, jsx } from "theme-ui";
@@ -17,7 +15,9 @@ const Header = ({ heading, breadcrumbs }) => {
 			}}
 		>
 			<Head>
-				<title>WMPCA - {heading}</title>
+				<title>
+						{`WMPCA - ${heading}`}
+				</title>
 				<link
 					rel="apple-touch-icon"
 					sizes="180x180"
