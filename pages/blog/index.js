@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Grid } from "theme-ui";
-import { Blog as BlogBody } from "../../components/newfrontdoor/blog";
+import { Blog as BlogBody, Content } from "../../components/newfrontdoor/blog";
 import Header from "../../components/header/header";
 import { fetchQuery } from "../../lib/sanity";
 import MainImage from "../../components/main-image";
@@ -14,6 +14,7 @@ import {
 	menuQuery,
 	blogPageQuery,
 	blogSearchQuery,
+	contentQuery,
 } from "../../lib/queries";
 import { withEmotionCache } from "@emotion/core";
 
@@ -28,7 +29,7 @@ const Link = ({ link, data, children }) => {
 	);
 };
 
-const Blog = ({ mainData, menuData, blogPosts }) => {
+const Blog = ({ mainData, menuData, blogPosts, contents }) => {
 	const { content, title, mainImage } = mainData;
 
 	return (
@@ -36,6 +37,7 @@ const Blog = ({ mainData, menuData, blogPosts }) => {
 			<Grid gap={20}>
 				<Header heading={title} />
 				{mainImage && <MainImage mainImage={mainImage} />}
+				{contents && <Content categories={contents} />}
 				<BlockText blocks={content} />
 				<BlogBody
 					dateFormat="EEEE, MMMM do yyyy"
@@ -69,6 +71,7 @@ Blog.propTypes = {
 	}).isRequired,
 	menuData: PropTypes.object.isRequired,
 	blogPosts: PropTypes.array.isRequired,
+	contents: PropTypes.array.isRequired,
 };
 
 Blog.getInitialProps = async ({ query }) => {
@@ -77,7 +80,8 @@ Blog.getInitialProps = async ({ query }) => {
     {
       "mainData": ${pageQuery("blog")},
       "menuData": ${menuQuery},
-      "blogPosts": ${blogs}
+      "blogPosts": ${blogs},
+			"contents": ${contentQuery}
     }
     `);
 	return results;
