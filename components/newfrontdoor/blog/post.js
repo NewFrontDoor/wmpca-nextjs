@@ -5,6 +5,7 @@ import DefaultSidebar from './sidebar';
 
 const Post = ({
   body,
+  brief,
   blockText,
   bodyTransform = (props) => props,
   Sidebar = DefaultSidebar,
@@ -37,7 +38,7 @@ const Post = ({
           },
         }}
       >
-        {blockText(body)}
+        {blockText(brief || body)}
       </div>
     </Flex>
   ) : <div>empty</div>;

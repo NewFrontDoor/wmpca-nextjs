@@ -32,6 +32,7 @@ Blog.propTypes = {
       title: PropTypes.string.isRequired,
       _createdAt: PropTypes.string.isRequired,
       body: PropTypes.oneOf([PropTypes.array, PropTypes.string]).isRequired,
+      brief: PropTypes.oneOf([PropTypes.array, PropTypes.string]),
       categories: PropTypes.arrayOf(
         PropTypes.shape({
           title: PropTypes.string
