@@ -29,7 +29,7 @@ const Sidebar = ({
         ...overrides
       }}
     >
-      <NextLink href={`/blog/${slug}`}>
+      <NextLink href={`/blog/${slug}`} sx={{ variant: "styles.a" }}>
        <h2 sx={{ variant: "styles.h2" }}>{title}</h2>
       </NextLink>
       <div>
